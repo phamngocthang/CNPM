@@ -22,9 +22,15 @@ public class LoadDeTai extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
+		int index = Integer.parseInt(request.getParameter("index"));
+		int cn =Integer.parseInt(request.getParameter("cn"));
+		
+		
 		DaoDeTai dao = new DaoDeTai();
-		List<DangKy> listD = dao.SelectAll("");
+		List<DangKy> listD = dao.SelectAll(index, cn);
 		request.setAttribute("listD", listD);
+		request.setAttribute("tag", index);
+		request.setAttribute("tagcn", cn);
 		request.getRequestDispatcher("DSDeTai.jsp").forward(request, response);
     }
 

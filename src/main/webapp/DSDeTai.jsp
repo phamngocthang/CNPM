@@ -332,14 +332,16 @@
     <div class="panel-body">
         <div id="search">
             <select id="search_cn" class="form-control text-center">
-                <option value="/Home/DanhSachDeTai?id=3" selected>Tất cả chuyên ngành</option>
-                        <option value="/Home/DanhSachDeTai?id=3&cn=1">C&#244;ng nghệ phần mềm</option>
-                        <option value="/Home/DanhSachDeTai?id=3&cn=2">Hệ thống th&#244;ng tin</option>
-                        <option value="/Home/DanhSachDeTai?id=3&cn=3">Mạng m&#225;y t&#237;nh</option>
-                        <option value="/Home/DanhSachDeTai?id=3&cn=4">Kỹ Thuật dữ liệu</option>
-                        <option value="/Home/DanhSachDeTai?id=3&cn=5">Sư phạm</option>
-                        <option value="/Home/DanhSachDeTai?id=3&cn=9">Tr&#237; tuệ nh&#226;n tạo</option>
+                <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=-1" selected>Tất cả chuyên ngành</option>
+                        <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=1">C&#244;ng nghệ phần mềm</option>
+                        <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=2">Hệ thống th&#244;ng tin</option>
+                        <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=3">Mạng m&#225;y t&#237;nh</option>
+                        <!--
+                        <option value="/Home/DanhSachDeTai?index=3&cn=4">Kỹ Thuật dữ liệu</option>
+                        <option value="/Home/DanhSachDeTai?index=3&cn=5">Sư phạm</option>
+                        <option value="/Home/DanhSachDeTai?index=3&cn=9">Tr&#237; tuệ nh&#226;n tạo</option>
                         <option value="/Home/DanhSachDeTai?id=3&cn=10">An to&#224;n th&#244;ng tin</option>
+                          -->
             </select>
         </div>
         <br />
@@ -384,7 +386,34 @@
                     <tr>
                         <td colspan="6">
                             
-                            <div class="pagination-container"><ul class="pagination"><li class="PagedList-skipToPrevious"><a href="/Home/DanhSachDeTai/3?page=1&amp;cn=0" rel="prev">«</a></li><li><a href="/Home/DanhSachDeTai/3?page=1&amp;cn=0">1</a></li><li class="active"><a>2</a></li><li><a href="/Home/DanhSachDeTai/3?page=3&amp;cn=0">3</a></li><li><a href="/Home/DanhSachDeTai/3?page=4&amp;cn=0">4</a></li><li><a href="/Home/DanhSachDeTai/3?page=5&amp;cn=0">5</a></li><li><a href="/Home/DanhSachDeTai/3?page=6&amp;cn=0">6</a></li><li><a href="/Home/DanhSachDeTai/3?page=7&amp;cn=0">7</a></li><li><a href="/Home/DanhSachDeTai/3?page=8&amp;cn=0">8</a></li><li class="PagedList-skipToNext"><a href="/Home/DanhSachDeTai/3?page=3&amp;cn=0" rel="next">»</a></li></ul></div>
+                            <div class="pagination-container">
+                            	<ul class="pagination">
+                            		<li class="PagedList-skipToPrevious"><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${tag-1}&cn=${tagcn}" rel="prev">«</a></li>
+                            		<li><a href="/Home/DanhSachDeTai/3?page=1&amp;cn=0">1</a></li>
+                            		<li class="active"><a>2</a></li>
+                            		<li><a href="/Home/DanhSachDeTai/3?page=3&amp;cn=0">3</a></li>
+                            		<li><a href="/Home/DanhSachDeTai/3?page=4&amp;cn=0">4</a></li>
+                            		<li><a href="/Home/DanhSachDeTai/3?page=5&amp;cn=0">5</a></li>
+                            		<li><a href="/Home/DanhSachDeTai/3?page=6&amp;cn=0">6</a></li>
+                            		<li><a href="/Home/DanhSachDeTai/3?page=7&amp;cn=0">7</a></li>
+                            		<li><a href="/Home/DanhSachDeTai/3?page=8&amp;cn=0">8</a></li>
+                            		<c:forEach begin="1" end="${endP}" var="i">
+                            			<c:if test="">
+				                        	<li class="page-item ${tag == i?"active":""}"><a class="page-link" href="shop?subcateID=${subcateID}&index=${i}&showP=${showtag}">${i}</a></li>      
+				                        </c:if> 
+				                        
+										<c:choose>
+										   <c:when test="${tag == i}">
+										   		<li class="active"><a>{i}</a></li>
+										   </c:when> 
+										   <c:otherwise>
+										   		<li><a href="/Home/DanhSachDeTai/3?page=8&amp;cn=0">8</a></li>
+										   </c:otherwise>   
+										</c:choose>   
+			                        </c:forEach>
+                            		<li class="PagedList-skipToNext"><a href="/Home/DanhSachDeTai/3?page=3&amp;cn=0" rel="next">»</a></li>
+                            	</ul>
+                            </div>
                         </td>
                     </tr>
                 </tfoot>

@@ -41,19 +41,34 @@ public class DaoDeTai {
         return list;
     }
     
-    public List<DangKy> SelectAll(String querySQL) {
+    public List<DangKy> SelectAll(int index, int cn) {
         List<DangKy> list = new ArrayList<>();
-        String query = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName from dangky as dk INNER JOIN detai as d ON "
-        		+ "dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh= d.ChuyenNganh INNER JOIN inforaccount as i on i.UserName = dk.GVHuongDan WHERE dk.GVHuongDan IS NOT NULL;";
+        String query;
+        if(cn == -1) {
+        	query = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName from dangky as dk INNER JOIN detai as d ON \r\n"
+            		+ "dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh= d.ChuyenNganh INNER JOIN inforaccount as i on i.UserName = dk.GVHuongDan WHERE dk.GVHuongDan IS NOT NULL "
+            		+ "LIMIT 5 OFFSET ?";
+        }
+        else {
+        	query = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName from dangky as dk INNER JOIN detai as d ON \r\n"
+            		+ "dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh= d.ChuyenNganh INNER JOIN inforaccount as i on i.UserName = dk.GVHuongDan WHERE dk.GVHuongDan IS NOT NULL "
+            		+ "and chuyennganh.IdChuyenNganh=? LIMIT 5 OFFSET ?";
+        }
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
+            if(cn == -1) {
+            	ps.setInt(1, (index-1)*5);
+            }
+            else {
+            	ps.setInt(1, cn);
+            	ps.setInt(2, (index-1)*5);
+            }
             ResultSet rs2 = ps.executeQuery();
             List<Integer> listSL = countAmountMember("");
-            int index = 0;
+            
             while (rs2.next()) {
-            	list.add(new DangKy(rs2.getInt(1), rs2.getString(2), listSL.get(index), rs2.getString(3), rs2.getString(4)));
-            	index++;
+            	list.add(new DangKy(rs2.getInt(1), rs2.getString(2), 2, rs2.getString(3), rs2.getString(4)));
             }
             rs2.close();
 			ps.close();
