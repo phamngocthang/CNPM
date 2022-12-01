@@ -1,87 +1,90 @@
 package entity;
 
-public class DangKy {
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the dangky database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Dangky.findAll", query="SELECT d FROM Dangky d")
+public class Dangky implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
 	private int idDangKy;
-	private int idDeTai;
-	private String tenDeTai;
-	private int idNhom;
-	private int slThanhVien;
-	private String tenChuyenNganh;
-	private String gvHuongDan;
-	private String gvPhanBien;
+
 	private int diem;
-	public int getIdDangKy() {
-		return idDangKy;
+
+	private String GVPhanBien;
+
+	//bi-directional many-to-one association to Account
+	@ManyToOne
+	@JoinColumn(name="GVHuongDan")
+	private Account account;
+
+	//bi-directional many-to-one association to Detai
+	@ManyToOne
+	@JoinColumn(name="IdDeTai")
+	private Detai detai;
+
+	//bi-directional many-to-one association to Nhom
+	@ManyToOne
+	@JoinColumn(name="IdNhom")
+	private Nhom nhom;
+
+	public Dangky() {
 	}
+
+	public int getIdDangKy() {
+		return this.idDangKy;
+	}
+
 	public void setIdDangKy(int idDangKy) {
 		this.idDangKy = idDangKy;
 	}
-	public String getTenDeTai() {
-		return tenDeTai;
-	}
-	public void setTenDeTai(String tenDeTai) {
-		this.tenDeTai = tenDeTai;
-	}
-	public int getSlThanhVien() {
-		return slThanhVien;
-	}
-	public void setSlThanhVien(int slThanhVien) {
-		this.slThanhVien = slThanhVien;
-	}
-	public String getTenChuyenNganh() {
-		return tenChuyenNganh;
-	}
-	public void setTenChuyenNganh(String tenChuyenNganh) {
-		this.tenChuyenNganh = tenChuyenNganh;
-	}
-	public DangKy(int idDangKy, String tenDeTai, int slThanhVien, String tenChuyenNganh, String gvHuongDan) {
-		super();
-		this.idDangKy = idDangKy;
-		this.tenDeTai = tenDeTai;
-		this.slThanhVien = slThanhVien;
-		this.tenChuyenNganh = tenChuyenNganh;
-		this.gvHuongDan = gvHuongDan;
-	}
-	public int getIdDeTai() {
-		return idDeTai;
-	}
-	public void setIdDeTai(int idDeTai) {
-		this.idDeTai = idDeTai;
-	}
-	public int getIdNhom() {
-		return idNhom;
-	}
-	public void setIdNhom(int idNhom) {
-		this.idNhom = idNhom;
-	}
-	public String getGvHuongDan() {
-		return gvHuongDan;
-	}
-	public void setGvHuongDan(String gvHuongDan) {
-		this.gvHuongDan = gvHuongDan;
-	}
-	public String getGvPhanBien() {
-		return gvPhanBien;
-	}
-	public void setGvPhanBien(String gvPhanBien) {
-		this.gvPhanBien = gvPhanBien;
-	}
+
 	public int getDiem() {
-		return diem;
+		return this.diem;
 	}
+
 	public void setDiem(int diem) {
 		this.diem = diem;
 	}
 
-	public DangKy() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public String toString() {
-		return "DangKy [idDangKy=" + idDangKy + ", tenDeTai=" + tenDeTai + ", slThanhVien=" + slThanhVien
-				+ ", tenChuyenNganh=" + tenChuyenNganh + ", gvHuongDan=" + gvHuongDan + "]";
+	public String getGVPhanBien() {
+		return this.GVPhanBien;
 	}
 	
-	
+
+	public void setGVPhanBien(String GVPhanBien) {
+		this.GVPhanBien = GVPhanBien;
+	}
+
+	public Account getAccount() {
+		return this.account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Detai getDetai() {
+		return this.detai;
+	}
+
+	public void setDetai(Detai detai) {
+		this.detai = detai;
+	}
+
+	public Nhom getNhom() {
+		return this.nhom;
+	}
+
+	public void setNhom(Nhom nhom) {
+		this.nhom = nhom;
+	}
+
 }

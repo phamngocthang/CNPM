@@ -28,7 +28,7 @@
     <div id="menu">
        <li class="list-group-item" style="text-align: right;font-weight:bold;font-family:verdana;background-color:#efefef;">Danh Mục</li>
         <a href="/Home/Index" class="list-group-item"><img src="Content/public/images/house-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Trang Chủ</a>
-        <a href="/Home/LoaiDeTai" class="list-group-item "><img src="Content/public/images/Actions-view-calendar-list-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
+        <a href="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=-1" class="list-group-item "><img src="Content/public/images/Actions-view-calendar-list-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
         <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="Content/public/images/Teacher-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
         <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="Content/public/images/Student-3-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>
         <a href="/Home/HuongDanDangKy" class="list-group-item "><img src="Content/public/images/Actions-help-contents-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Hướng dẫn đăng ký</a>

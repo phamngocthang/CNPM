@@ -10,14 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.DaoDeTai;
-import entity.DangKy;
-import entity.DeTai;
+import service.serviceDetai;
 
 
 
 @WebServlet(name = "LoadDeTai", urlPatterns = {"/DanhSachDeTai"})
 public class LoadDeTai extends HttpServlet {
+	serviceDetai sv = new serviceDetai();
+	private int getEndPage(int cn, int showPage) {
+
+		int count = sv.getamountDTByCN(cn);
+
+		int endP = count / showPage;
+		if(count % showPage != 0)
+		{
+			endP++;
+		}
+		return endP;
+	}
        
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -25,12 +35,16 @@ public class LoadDeTai extends HttpServlet {
 		int index = Integer.parseInt(request.getParameter("index"));
 		int cn =Integer.parseInt(request.getParameter("cn"));
 		
-		
-		DaoDeTai dao = new DaoDeTai();
-		List<DangKy> listD = dao.SelectAll(index, cn);
+		serviceDetai sv = new serviceDetai();
+		List<Object[]> listD = sv.loadDetai(cn, index);
+		List<Integer> listM = sv.getAmountMember(cn, index);
+		int endP = getEndPage(cn, 5);
 		request.setAttribute("listD", listD);
+		request.setAttribute("listM", listM);
 		request.setAttribute("tag", index);
 		request.setAttribute("tagcn", cn);
+		request.setAttribute("endP", endP);
+		
 		request.getRequestDispatcher("DSDeTai.jsp").forward(request, response);
     }
 

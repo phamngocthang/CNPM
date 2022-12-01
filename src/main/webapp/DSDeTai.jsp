@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <head>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
@@ -369,14 +370,15 @@
                     </tr>
                 </thead>
                 <tbody>
-						<c:forEach items="${listD}" var="p">
+						<c:forEach begin="0" end="${fn:length(listD) - 1}" step="1" varStatus="position">
+							<c:set var="p" value="${listD[position.current]}" />
 							<tr>
-	                            <td><span class="text-info">1</span></td>
-	                            <td><span class="caret"></span>${p.tenDeTai}</td>
-	                            <td>${p.gvHuongDan}</td>
-	                            <td>${p.tenChuyenNganh }</td>
+	                            <td><span class="text-info">${position.current+1}</span></td>
+	                            <td><span class="caret"></span>${p[1]}</td>
+	                            <td>${p[3]}</td>
+	                            <td>${p[2]}</td>
 	                                <td>Đã có người đăng ký</td>
-	                                <td><a class="badge red">${p.slThanhVien}</a> / <a class="badge green">2</a></td>
+	                                <td><a class="badge red">${listM[position.current]}</a> / <a class="badge green">2</a></td>
 	                                <td><a target="_blank" href="/Home/ChiTietDeTai?id=140" class="btn btn-success btn-xs"><img src="Content/public/images/Windows-View-Detail-icon.png" width="24" height="24" data-toggle="tooltip" title="Xem chi tiết" /></a></td>    
                             
                        		 </tr>
@@ -388,30 +390,22 @@
                             
                             <div class="pagination-container">
                             	<ul class="pagination">
-                            		<li class="PagedList-skipToPrevious"><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${tag-1}&cn=${tagcn}" rel="prev">«</a></li>
-                            		<li><a href="/Home/DanhSachDeTai/3?page=1&amp;cn=0">1</a></li>
-                            		<li class="active"><a>2</a></li>
-                            		<li><a href="/Home/DanhSachDeTai/3?page=3&amp;cn=0">3</a></li>
-                            		<li><a href="/Home/DanhSachDeTai/3?page=4&amp;cn=0">4</a></li>
-                            		<li><a href="/Home/DanhSachDeTai/3?page=5&amp;cn=0">5</a></li>
-                            		<li><a href="/Home/DanhSachDeTai/3?page=6&amp;cn=0">6</a></li>
-                            		<li><a href="/Home/DanhSachDeTai/3?page=7&amp;cn=0">7</a></li>
-                            		<li><a href="/Home/DanhSachDeTai/3?page=8&amp;cn=0">8</a></li>
+                            		<c:if test="${tag > 1}">
+                            			<li class="PagedList-skipToPrevious"><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${tag-1}&cn=${tagcn}" rel="prev">«</a></li>
+                            		</c:if>
                             		<c:forEach begin="1" end="${endP}" var="i">
-                            			<c:if test="">
-				                        	<li class="page-item ${tag == i?"active":""}"><a class="page-link" href="shop?subcateID=${subcateID}&index=${i}&showP=${showtag}">${i}</a></li>      
-				                        </c:if> 
-				                        
 										<c:choose>
 										   <c:when test="${tag == i}">
-										   		<li class="active"><a>{i}</a></li>
+										   		<li class="active"><a>${i}</a></li>
 										   </c:when> 
 										   <c:otherwise>
-										   		<li><a href="/Home/DanhSachDeTai/3?page=8&amp;cn=0">8</a></li>
+										   		<li><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${i}&cn=${tagcn}">${i}</a></li>
 										   </c:otherwise>   
 										</c:choose>   
 			                        </c:forEach>
-                            		<li class="PagedList-skipToNext"><a href="/Home/DanhSachDeTai/3?page=3&amp;cn=0" rel="next">»</a></li>
+			                        <c:if test="${endP != tag}">
+                            			<li class="PagedList-skipToNext"><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${tag+1}&cn=${tagcn}" rel="next">»</a></li>
+                            		</c:if>
                             	</ul>
                             </div>
                         </td>
