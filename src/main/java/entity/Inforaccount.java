@@ -35,13 +35,6 @@ public class Inforaccount implements Serializable {
 	@JoinColumn(name="ChuyenNganh")
 	private Chuyennganh chuyennganh;
 
-	//bi-directional many-to-one association to Nhom
-	@OneToMany(mappedBy="inforaccount1")
-	private List<Nhom> nhoms1;
-
-	//bi-directional many-to-one association to Nhom
-	@OneToMany(mappedBy="inforaccount2")
-	private List<Nhom> nhoms2;
 
 	public Inforaccount() {
 	}
@@ -102,48 +95,6 @@ public class Inforaccount implements Serializable {
 		this.chuyennganh = chuyennganh;
 	}
 
-	public List<Nhom> getNhoms1() {
-		return this.nhoms1;
-	}
 
-	public void setNhoms1(List<Nhom> nhoms1) {
-		this.nhoms1 = nhoms1;
-	}
-
-	public Nhom addNhoms1(Nhom nhoms1) {
-		getNhoms1().add(nhoms1);
-		nhoms1.setInforaccount1(this);
-
-		return nhoms1;
-	}
-
-	public Nhom removeNhoms1(Nhom nhoms1) {
-		getNhoms1().remove(nhoms1);
-		nhoms1.setInforaccount1(null);
-
-		return nhoms1;
-	}
-
-	public List<Nhom> getNhoms2() {
-		return this.nhoms2;
-	}
-
-	public void setNhoms2(List<Nhom> nhoms2) {
-		this.nhoms2 = nhoms2;
-	}
-
-	public Nhom addNhoms2(Nhom nhoms2) {
-		getNhoms2().add(nhoms2);
-		nhoms2.setInforaccount2(this);
-
-		return nhoms2;
-	}
-
-	public Nhom removeNhoms2(Nhom nhoms2) {
-		getNhoms2().remove(nhoms2);
-		nhoms2.setInforaccount2(null);
-
-		return nhoms2;
-	}
 
 }

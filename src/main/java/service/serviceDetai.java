@@ -2,8 +2,8 @@ package service;
 
 import java.util.List;
 
+import antlr.StringUtils;
 import dao.daoDetai;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 public class serviceDetai {
@@ -12,12 +12,12 @@ public class serviceDetai {
 		List<Object[]> list = new ArrayList<>();
 		String HQL;
 		if(cn == -1) {
-			HQL = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName from dangky as dk INNER JOIN detai as d ON \r\n"
+			HQL = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName, TrNhom, ThanhVien from dangky as dk INNER JOIN detai as d ON \r\n"
 					+ "dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh= d.ChuyenNganh INNER JOIN inforaccount as i on i.UserName = dk.GVHuongDan WHERE "
 					+ "dk.GVHuongDan IS NOT NULL";
 		}
 		else {
-			HQL = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName from dangky as dk INNER JOIN detai as d ON \r\n"
+			HQL = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName, TrNhom, ThanhVien from dangky as dk INNER JOIN detai as d ON \r\n"
 					+ "dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh= d.ChuyenNganh INNER JOIN inforaccount as i on i.UserName = dk.GVHuongDan WHERE "
 					+ "dk.GVHuongDan IS NOT NULL and chuyennganh.IdChuyenNganh="+cn;
 		}
@@ -26,6 +26,34 @@ public class serviceDetai {
 		list = DaoDetai.getDetai(HQL, (indexP-1)*5, 5);
 		return list;
 	}
+	
+	public List<Object[]> getChiTietDetai(int id) {
+		List<Object[]> ctdt;
+		String HQL = "select TenDeTai, MucTieu, YeuCau, SanPham, TenChuyenNganh, TenLoaiDeTai, NienKhoa, TrNhom, ThanhVien, GVHuongDan, GVPhanBien, Diem from dangky as dk INNER JOIN detai as d on dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh = d.ChuyenNganh \r\n"
+				+ "WHERE IdDangKy = :id";
+		
+
+		ctdt = DaoDetai.getChiTietDetai(HQL, id);
+		return ctdt;
+	}
+	public List<String> getNameByID(int idDK) {
+		List<String> ds = new ArrayList<>();
+		String HQL = "select A.FullName from Inforaccount A where A.UserName=:id";
+		List<Object[]> list = getChiTietDetai(idDK);
+		for (Object[] objects : list) {
+			for (int i = 7; i <= 10; i++) {
+				try {
+					ds.add(DaoDetai.getNameByID(HQL, objects[i].toString()).getFullName());
+				} catch (Exception e) {
+					ds.add("");
+				}
+			}
+		}
+		return ds;
+		
+	}
+	
+	
 	public int getamountDTByCN(int cn) {
 		String HQL = "";
 		if(cn == -1) {
@@ -37,37 +65,28 @@ public class serviceDetai {
 		
 		return DaoDetai.getamountDTByCN(HQL);
  	}
-	public List<Integer> getAmountMember(int cn, int indexP) {
+	
+	
+	public List<Integer> getAmountMember(List<Object[]> listM) {
 		List<Integer> list = new ArrayList<>();
-		String HQL;
-		if(cn == -1) {
-			HQL = "SELECT TrNhom, ThanhVien FROM dangky INNER JOIN nhom on dangky.IdNhom = nhom.IdNhom WHERE dangky.GVHuongDan IS NOT NULL";
-		}
-		else {
-			HQL = "SELECT TrNhom, ThanhVien, detai.ChuyenNganh FROM dangky INNER JOIN nhom on dangky.IdNhom = nhom.IdNhom  INNER JOIN detai on detai.IdDeTai = dangky.IdDeTai WHERE dangky.GVHuongDan IS NOT NULL and detai.ChuyenNganh="+ cn;
-		}
-		List<Object[]> listM = DaoDetai.getDetai(HQL, (indexP-1)*5, 5);
+
 		for (Object[] objects : listM) {
 			int count = 0;
-			if(objects[0].toString() != null) {
+			if(objects[4].toString() != null) {
 				count++;
 			}
 			try {
-				if(objects[1].toString() != null) {
+				if(!objects[5].toString().equals("")) {
 					count++;
 				}
 			}
 			catch (Exception e){
 				
 			}
-			list.add(count);
+			finally {
+				list.add(count);
+			}
 		}
 		return list;
-	}
-	
-	
-	public static void main(String[] args) {
-		serviceDetai sv = new serviceDetai();
-		System.out.println(sv.getamountDTByCN(1));
 	}
 }

@@ -16,8 +16,6 @@ import entity.Chuyennganh;
 import entity.Dangky;
 import entity.Detai;
 import entity.Inforaccount;
-import entity.Loaidetai;
-import entity.Nhom;
 public class HibernateUtil {
     
 	private final static SessionFactory FACTORY;
@@ -42,8 +40,6 @@ public class HibernateUtil {
 		conf.addAnnotatedClass(Chuyennganh.class);
 		conf.addAnnotatedClass(Dangky.class);
 		conf.addAnnotatedClass(Inforaccount.class);
-		conf.addAnnotatedClass(Loaidetai.class);
-		conf.addAnnotatedClass(Nhom.class);
 		conf.addAnnotatedClass(Detai.class);
 		
 		ServiceRegistry registry = new StandardServiceRegistryBuilder()

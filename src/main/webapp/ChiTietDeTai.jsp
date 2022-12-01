@@ -1,29 +1,31 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <head>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="Content/public/images/it_spkt.png" type="image/x-icon" />
     <link rel="shortcut icon" href="Content/public/images/it_spkt.png" />
-    <title>Danh Sách Đề Tài</title>
+    <title>::. Chi tiết đề t&#224;i .::</title>
     <link rel="stylesheet" media="all" type="text/css" href="Content/public/css/bootstrap.min.css" />
     <link rel="stylesheet" media="all" type="text/css" href="Content/public/css/style.css" />
     <link rel="stylesheet" media="all" type="text/css" href="Content/public/css/footable.core.css" />
     <link rel="stylesheet" media="all" type="text/css" href="Content/public/css/footable.standalone.css" />
     <link href="Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="Content/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
-	
+
     <script type="text/javascript" src="Content/public/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="Content/public/js/footable.js"></script>
     <script type="text/javascript" src="Content/public/js/my_script.js"></script>
     <script src="Content/public/ckeditor/ckeditor.js"></script>
     <link href="Content/public/datepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
     <script src="Content/public/datepicker/jquery.simple-dtpicker.js"></script>
+ 
 </head>
 <body>
     <div id="menu">
@@ -35,9 +37,10 @@
         <a href="/Home/HuongDanDangKy" class="list-group-item "><img src="Content/public/images/Actions-help-contents-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Hướng dẫn đăng ký</a>
         <a href="/Home/ThongKe" class="list-group-item "><img src="Content/public/images/chart-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thống kê</a>
         <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="Content/public/images/Search-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
-        <hr />   
+        <hr />
     </div>
     <div id="container">
+
 <div id="mobile-bar">
     <span style="cursor: pointer;" class="pull-left" href="javascript:;" onclick="slideMenu(); return false;" id="slideicon"><i class="icon-reorder"></i></span>
         <span data-toggle="modal" href="#dang_nhap" class="pull-right btn btn-default btn-sm" id="#">Sign In</span>
@@ -190,9 +193,6 @@
                                     <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="Content/public/images/Search-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
                                 </div><!-- /panel-default -->
 
-                                
-
-
 
                                 <!--============================Bench==================-->
                                 <div class="panel panel-default">
@@ -200,8 +200,8 @@
                                         <h4 id="mobile_thongke">Thống kê</h4>
                                     </div>
                                     
-                                    <a class="list-group-item"><img src="Content/public/images/user-group-icon (1).png" width="24" height="24" /> Lượt truy cập : <span class="badge">107679</span></a>
-                                    <a style="text-decoration: underline;" data-toggle="modal" data-target="#who_online" title="Who is online ?" href="javascript:void();" class="list-group-item"><img src="Content/public/images/online-icon.png" width="24" height="24" /> Đang trực tuyến: <span class="badge">2</span></a>
+                                    <a class="list-group-item"><img src="Content/public/images/user-group-icon (1).png" width="24" height="24" /> Lượt truy cập : <span class="badge">109438</span></a>
+                                    <a style="text-decoration: underline;" data-toggle="modal" data-target="#who_online" title="Who is online ?" href="javascript:void();" class="list-group-item"><img src="Content/public/images/online-icon.png" width="24" height="24" /> Đang trực tuyến: <span class="badge">3</span></a>
                                 </div>
                             </div>
                             <!-- Modal Who online -->
@@ -320,101 +320,168 @@
                             </span>
                             <span id="time_bar">
 
-                                <span id="time" class="label label-primary pull-right"><i class="icon-time"></i> 21 giờ 56 phút, ngày 20 tháng 11, 2022</span><br>                             
+                                <span id="time" class="label label-primary pull-right"><i class="icon-time"></i> 13 giờ 4 phút, ngày 1 tháng 12, 2022</span><br>                             
                             </span>
                         </span>
                     </div>
                         
 <div class="panel panel-default">
     <div style="color: rgb(7, 132, 163);" class="panel-heading">
-
-        
-        <h4 style="font-family: verdana;color:rgb(87,87,87);">Đề t&#224;i tốt nghiệp k14 </h4>
+        <h4 style="font-family: verdana;color:rgb(87,87,87);">Chi tiết đề tài</h4>
     </div>
     <div class="panel-body">
-        <div id="search">
-            <select id="search_cn" class="form-control text-center">
-                <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=-1" selected>Tất cả chuyên ngành</option>
-                        <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=1">C&#244;ng nghệ phần mềm</option>
-                        <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=2">Hệ thống th&#244;ng tin</option>
-                        <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=3">Mạng m&#225;y t&#237;nh</option>
-                        <!--
-                        <option value="/Home/DanhSachDeTai?index=3&cn=4">Kỹ Thuật dữ liệu</option>
-                        <option value="/Home/DanhSachDeTai?index=3&cn=5">Sư phạm</option>
-                        <option value="/Home/DanhSachDeTai?index=3&cn=9">Tr&#237; tuệ nh&#226;n tạo</option>
-                        <option value="/Home/DanhSachDeTai?id=3&cn=10">An to&#224;n th&#244;ng tin</option>
-                          -->
-            </select>
-        </div>
-        <br />
-        <br />
-        <div id="show_detai">
-            <a href="/Home/DanhSachDeTaiKhongDuyet?id=3">
-                <div class="alert alert-info">
-                    Click để xem danh sách đề tài không được duyệt<br />
-                    (Nếu sinh viên nằm trong danh sách đề tài không được duyệt vui lòng đăng ký đề tài khác)
-                </div>
-            </a><br />
-            <div class="text-center">
-                <p class="badge red">Tổng số đề tài : ${totalD }</p>
-            </div>
-            <table class="table" data-page-size="5">
-                <thead>
-                    <tr>
-                        <th data="true">STT</th>
-                        <th data="true">Tên đề tài</th>
-                        <th data="true" style="width: 140px!important;">GVHD</th>
-                        <th data-hide="phone,tablet">Chuyên ngành </th>
-                        <th data-hide="phone,tablet">Tình trạng </th>
-                        <th data-hide="phone,tablet">Số lượng</th>
-                        <th data-hide="phone">Chi tiết</th>
-                    </tr>
-                </thead>
-                <tbody>
-						<c:forEach begin="0" end="${fn:length(listD) - 1}" step="1" varStatus="position">
-							<c:set var="p" value="${listD[position.current]}" />
-							<tr>
-	                            <td><span class="text-info">${position.current+1}</span></td>
-	                            <td><span class="caret"></span>${p[1]}</td>
-	                            <td>${p[3]}</td>
-	                            <td>${p[2]}</td>
-	                                <td>${listM[position.current] > 0 ? "Đã có người đăng ký" : "Chưa có người đăng ký"}</td>
-	                                <td><a class="badge red">${listM[position.current]}</a> / <a class="badge green">2</a></td>
-	                                <td><a target="_blank" href="ChiTietDeTai?id=${p[0]}" class="btn btn-success btn-xs"><img src="Content/public/images/Windows-View-Detail-icon.png" width="24" height="24" data-toggle="tooltip" title="Xem chi tiết" /></a></td>    
-                       		 </tr>
-						</c:forEach>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="6">
-                            
-                            <div class="pagination-container">
-                            	<ul class="pagination">
-                            		<c:if test="${tag > 1}">
-                            			<li class="PagedList-skipToPrevious"><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${tag-1}&cn=${tagcn}" rel="prev">«</a></li>
-                            		</c:if>
-                            		<c:forEach begin="1" end="${endP}" var="i">
-										<c:choose>
-										   <c:when test="${tag == i}">
-										   		<li class="active"><a>${i}</a></li>
-										   </c:when> 
-										   <c:otherwise>
-										   		<li><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${i}&cn=${tagcn}">${i}</a></li>
-										   </c:otherwise>   
-										</c:choose>   
-			                        </c:forEach>
-			                        <c:if test="${endP != tag}">
-                            			<li class="PagedList-skipToNext"><a href="${pageContext.request.contextPath}/DanhSachDeTai?index=${tag+1}&cn=${tagcn}" rel="next">»</a></li>
-                            		</c:if>
-                            	</ul>
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
+        <div id="detail">
+        	<c:set var="p" value="${listCT[0]}" />
+            <table class="table table-hover">
+                <tr>
+                    <td>Tên đề tài</td>
+                    <td>${p[0]}</td>
+                </tr>
+                <tr>
+                    <td>Mục tiêu</td>
+                    <td>${p[1]}</td>
+                </tr>
+                <tr>
+                    <td>Yêu Cầu</td>
+                    <td>${p[2] }</td>
+                </tr>
+                <tr>
+                    <td>Sản phẩm</td>
+                    <td>${p[3]}</td>
+                </tr>
+                <tr>
+                    <td>Chú thích</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>SL sinh viên</td>
+                    <td><span class="badge green" title="Số lượng sinh viên đã đăng ký">${count }</span> / <span class="badge red" title="Tổng Số lượng sinh viên tối đa">2</span></td>
+                </tr>
+                <tr>
+                    <td>Được phép đăng ký khác chuyên ngành</td>
+                            <td>Không</td>
+
+                </tr>
+                <!--
+    <tr>
+        <td>Thời gian bắt đầu bảo vệ</td>
+        <td>0000-00-00 00:00:00</td>
+    </tr>
+    <tr>
+        <td>Thời gian kết thúc bảo vệ</td>
+        <td>0000-00-00 00:00:00</td>
+    </tr>
+    -->
+                <tr>
+                    <td>Chuyên ngành</td>
+                    <td>${p[4] }</td>
+                </tr>
+                <tr>
+                    <td>Loại đề tài</td>
+                    <td>${p[5] }</td>
+                </tr>
+                <tr>
+                    <td>Trạng thái</td>
+                    <td>Được bảo vệ</td>
+                </tr>
+                <tr>
+                    <td>Niên khóa</td>
+                    <td>${p[6] }</td>
+                </tr>
+                <tr class="success">
+                    <td>Trưởng nhóm</td>
+                    <td>
+                        <a data-toggle="modal" href="#truong_nhom">${listName[0]}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Các Thành viên</td>
+                    <td>
+
+                        <!-- ========================== Info thanh vien ==========================-->
+						<a data-toggle="modal" href="#truong_nhom">${listName[1]}</a>
+                    </td>
+                </tr>
+         
+                <tr class="danger">
+                    <td>GV hướng dẫn </td>
+                    <td>
+                        <a data-toggle="modal" href="#GVHD">${listName[2]}</a>
+                    </td>
+                </tr>
+                <tr class="warning">
+                    <td>GV phản biện</td>
+                    <td>${listName[3]}</td>
+                </tr>
+                <tr>
+                    <td>Điểm đề tài</td>
+                    <td>Chưa có điểm</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><button id="back" type="button" class="btn btn-info">Quay về</button></td>
+                </tr>
             </table>
         </div>
-
-
+        <!-- ========================== Info nhom truong ==========================-->
+        <div class="modal fade" id="truong_nhom">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Thông tin nhóm trưởng</h4>
+                    </div>
+                    <div class="modal-body">
+                            <img style="width: 92px;height:102px;" class="pull-right img-thumbnail" src="Content/avatar/hinh-nen-may-tinh-11.jpg" />
+                            <label>Họ tên : <span class="text-info">Trương Ph&#250;c Huy</span></label><br />
+                            <label>MSSV : <span class="text-info">14110082</span></label><br />
+                            <label>Chuyên ngành : <span class="text-info">Mạng m&#225;y t&#237;nh </span></label><br />
+                            <label>Số điện thoại : <span class="text-info"></span></label><br />
+                            <label>Email : <span class="text-info"></span></label><br />
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- ========================== Info GVHD ==========================-->
+        <div class="modal fade" id="GVHD">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Thông tin GVHD</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img style="width: 92px;height:102px;" class="pull-right img-thumbnail" src="Content/avatar/" />
+                        <label>Họ tên : <span class="text-info">Đinh C&#244;ng Đoan</span></label><br />
+                        <label>Chuyên ngành : <span class="text-info">Mạng m&#225;y t&#237;nh</span></label><br />
+                        <label>Số điện thoại : <span class="text-info"></span></label><br />
+                        <label>Email : <span class="text-info">doandc@fit.hcmute.edu.vn</span></label><br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- ========================== Info GVPB ==========================-->
+        <div class="modal fade" id="GVPB">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Thông tin GVPB</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
 </div>
 
@@ -427,8 +494,8 @@
                             <div class="panel-heading">
                                 <h4 id="mobile_thongke">Thống kê</h4>
                             </div>
-                        <a class="list-group-item"><img src="Content/public/images/user-group-icon (1).png" width="24" height="24" /> Lượt truy cập : <span class="badge">107679</span></a>
-                        <a style="text-decoration: underline;" data-toggle="modal" data-target="#who_online" title="Who is online ?" href="javascript:void();" class="list-group-item"><img src="Content/public/images/online-icon.png" width="24" height="24" /> Đang trực tuyến: <span class="badge">2</span></a>
+                        <a class="list-group-item"><img src="Content/public/images/user-group-icon (1).png" width="24" height="24" /> Lượt truy cập : <span class="badge">109438</span></a>
+                        <a style="text-decoration: underline;" data-toggle="modal" data-target="#who_online" title="Who is online ?" href="javascript:void();" class="list-group-item"><img src="Content/public/images/online-icon.png" width="24" height="24" /> Đang trực tuyến: <span class="badge">3</span></a>
                         </div>
                     </div>
             </div>
@@ -453,4 +520,3 @@
     <script type="text/javascript" src="Content/public/js/bootstrap.min.js"></script>
 </body>
 </html>
-

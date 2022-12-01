@@ -17,6 +17,26 @@ public class Dangky implements Serializable {
 	private int idDangKy;
 
 	private int diem;
+	
+	private String TrNhom;
+	
+	private String ThanhVien;
+
+	public String getTrNhom() {
+		return TrNhom;
+	}
+
+	public void setTrNhom(String trNhom) {
+		TrNhom = trNhom;
+	}
+
+	public String getThanhVien() {
+		return ThanhVien;
+	}
+
+	public void setThanhVien(String thanhVien) {
+		ThanhVien = thanhVien;
+	}
 
 	private String GVPhanBien;
 
@@ -29,11 +49,6 @@ public class Dangky implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="IdDeTai")
 	private Detai detai;
-
-	//bi-directional many-to-one association to Nhom
-	@ManyToOne
-	@JoinColumn(name="IdNhom")
-	private Nhom nhom;
 
 	public Dangky() {
 	}
@@ -79,12 +94,5 @@ public class Dangky implements Serializable {
 		this.detai = detai;
 	}
 
-	public Nhom getNhom() {
-		return this.nhom;
-	}
-
-	public void setNhom(Nhom nhom) {
-		this.nhom = nhom;
-	}
 
 }

@@ -24,6 +24,10 @@ public class Detai implements Serializable {
 	private String tenDeTai;
 
 	private String yeuCau;
+	
+	private int nienKhoa;
+
+	private String tenLoaiDeTai;
 
 	//bi-directional many-to-one association to Dangky
 	@OneToMany(mappedBy="detai")
@@ -34,11 +38,6 @@ public class Detai implements Serializable {
 	@JoinColumn(name="ChuyenNganh")
 	private Chuyennganh chuyennganh;
 
-	//bi-directional many-to-one association to Loaidetai
-	@ManyToOne
-	@JoinColumn(name="LoaiDeTai")
-	private Loaidetai loaidetai;
-
 	public Detai() {
 	}
 
@@ -48,6 +47,22 @@ public class Detai implements Serializable {
 
 	public void setIdDeTai(int idDeTai) {
 		this.idDeTai = idDeTai;
+	}
+	
+	public int getNienKhoa() {
+		return this.nienKhoa;
+	}
+
+	public void setNienKhoa(int nienKhoa) {
+		this.nienKhoa = nienKhoa;
+	}
+
+	public String getTenLoaiDeTai() {
+		return this.tenLoaiDeTai;
+	}
+
+	public void setTenLoaiDeTai(String tenLoaiDeTai) {
+		this.tenLoaiDeTai = tenLoaiDeTai;
 	}
 
 	public String getMucTieu() {
@@ -110,14 +125,6 @@ public class Detai implements Serializable {
 
 	public void setChuyennganh(Chuyennganh chuyennganh) {
 		this.chuyennganh = chuyennganh;
-	}
-
-	public Loaidetai getLoaidetai() {
-		return this.loaidetai;
-	}
-
-	public void setLoaidetai(Loaidetai loaidetai) {
-		this.loaidetai = loaidetai;
 	}
 
 }

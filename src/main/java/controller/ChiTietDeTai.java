@@ -14,39 +14,30 @@ import service.serviceDetai;
 
 
 
-@WebServlet(name = "LoadDeTai", urlPatterns = {"/DanhSachDeTai"})
-public class LoadDeTai extends HttpServlet {
+@WebServlet(name = "ChiTietDeTai", urlPatterns = {"/ChiTietDeTai"})
+public class ChiTietDeTai extends HttpServlet {
 	serviceDetai sv = new serviceDetai();
-	private int getEndPage(int cn, int showPage) {
 
-		int count = sv.getamountDTByCN(cn);
-
-		int endP = count / showPage;
-		if(count % showPage != 0)
-		{
-			endP++;
-		}
-		return endP;
-	}
        
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		int index = Integer.parseInt(request.getParameter("index"));
-		int cn =Integer.parseInt(request.getParameter("cn"));
-		
+		int id = Integer.parseInt(request.getParameter("id"));
+
 		serviceDetai sv = new serviceDetai();
-		List<Object[]> listD = sv.loadDetai(cn, index);
-		List<Integer> listM = sv.getAmountMember(listD);
-		int endP = getEndPage(cn, 5);
-		int totalD = sv.getamountDTByCN(cn);
-		request.setAttribute("listD", listD);
-		request.setAttribute("listM", listM);
-		request.setAttribute("tag", index);
-		request.setAttribute("tagcn", cn);
-		request.setAttribute("endP", endP);
-		request.setAttribute("totalD", totalD);
-		request.getRequestDispatcher("DSDeTai.jsp").forward(request, response);
+		List<Object[]> listCT = sv.getChiTietDetai(id);
+		List<String> listName = sv.getNameByID(id);
+		int count = 0;
+		if(!listName.get(0).equals("")) {
+			count++;
+		}
+		if(!listName.get(1).equals("")) {
+			count++;
+		}
+		request.setAttribute("listCT", listCT);
+		request.setAttribute("listName", listName);
+		request.setAttribute("count", count);
+		request.getRequestDispatcher("ChiTietDeTai.jsp").forward(request, response);
     }
 
     @Override
