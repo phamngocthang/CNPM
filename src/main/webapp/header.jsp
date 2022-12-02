@@ -21,10 +21,10 @@
                   <div class="header__top__links">
                      <c:choose>
                         <c:when test="${userLogged!=null}">
-                           <a href="logout">Đăng xuất</a>
+                           <a href="Logout">Đăng xuất</a>
                         </c:when>
                         <c:otherwise>
-                           <a href="./login.jsp">Đăng nhập</a>
+                           <a href="Login">Đăng nhập</a>
                         </c:otherwise>
                      </c:choose>
                   </div>

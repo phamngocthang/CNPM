@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Dangky.findAll", query="SELECT d FROM Dangky d")
+//@NamedQuery(name="Dangky.findAll", query="SELECT d FROM Dangky d")
 public class DangKy implements Serializable {
 	private static final long serialVersionUID = 1L;
 

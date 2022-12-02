@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
  * 
  */
 @Entity
-@NamedQuery(name="Loaidetai.findAll", query="SELECT l FROM Loaidetai l")
+//@NamedQuery(name="Loaidetai.findAll", query="SELECT l FROM Loaidetai l")
 public class LoaiDeTai implements Serializable {
 	private static final long serialVersionUID = 1L;
 

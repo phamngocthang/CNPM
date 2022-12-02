@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Inforaccount.findAll", query="SELECT i FROM Inforaccount i")
+//@NamedQuery(name="Inforaccount.findAll", query="SELECT i FROM Inforaccount i")
 public class Inforaccount implements Serializable {
 	private static final long serialVersionUID = 1L;
 

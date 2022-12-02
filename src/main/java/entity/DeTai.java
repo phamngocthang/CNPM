@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Detai.findAll", query="SELECT d FROM Detai d")
+//@NamedQuery(name="Detai.findAll", query="SELECT d FROM Detai d")
 public class DeTai implements Serializable {
 	private static final long serialVersionUID = 1L;
 

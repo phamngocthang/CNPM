@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Nhom.findAll", query="SELECT n FROM Nhom n")
+//@NamedQuery(name="Nhom.findAll", query="SELECT n FROM Nhom n")
 public class Nhom implements Serializable {
 	private static final long serialVersionUID = 1L;
 

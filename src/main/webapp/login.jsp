@@ -1,8 +1,8 @@
 <!doctype html>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html lang="en">
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
 <head>
 <title>Đăng nhập</title>
 <meta charset="utf-8">
@@ -29,18 +29,19 @@
 							<span class="fa fa-user-o"></span>
 						</div>
 						<h3 class="text-center mb-4">Đăng nhập</h3>
-						<form action="login" class="login-form" method="post">
+						<form action="Login" class="login-form" method="post">
 							<div class="form-group">
 								<input type="text" class="form-control rounded-left"
-									placeholder="Username" name="username" required>
+									placeholder="Username" name="username" value="${username}"/>
 							</div>
 							<div class="form-group d-flex">
 								<input type="password" class="form-control rounded-left"
-									placeholder="Password" name="password" required>
+									placeholder="Password" name="password" value="${password}"/>
 							</div>
 							<div class="form-group">
 								<button type="submit"
-									class="form-control btn btn-primary rounded submit px-3">Đăng nhập</button>
+									class="form-control btn btn-primary rounded submit px-3">Đăng
+									nhập</button>
 							</div>
 							<div class="form-group d-md-flex">
 								<div class="w-50">
@@ -49,7 +50,7 @@
 										name="remember" id="remember"> <span class="checkmark"></span>
 									</label>
 								</div>
-								 <p class="message-text">${message}</p>
+								<p class="message-text">${message}</p>
 								<div class="w-50 text-md-right">
 									<a href="#">Forgot Password</a>
 								</div>

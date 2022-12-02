@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Chuyennganh.findAll", query="SELECT c FROM chuyennganh c")
+//@NamedQuery(name="Chuyennganh.findAll", query="SELECT c FROM chuyennganh c")
 public class ChuyenNganh implements Serializable {
 	private static final long serialVersionUID = 1L;
 
