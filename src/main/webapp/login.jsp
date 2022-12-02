@@ -18,8 +18,10 @@
 
 <link rel="stylesheet" href="Content/public/css/style1.css">
 
+
 </head>
 <body>
+
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">

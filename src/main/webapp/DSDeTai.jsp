@@ -43,19 +43,8 @@
         <span data-toggle="modal" href="#dang_nhap" class="pull-right btn btn-default btn-sm" id="#">Sign In</span>
         <p style="text-align: center;font-weight:bold;">Đăng ký đề tài</p>
 </div>
-        <div id="navigation">
-            <div id="banner-desktop">
-                <div class="container">
-                    <div id="banner">
-                        <div id="login-area">
-                                   <a data-toggle="modal" href="#dang_nhap"><img src="Content/public/images/Login-icon.png" width="24" height="24" /> Đăng nhập</a>
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Header Section Begin-->
+			<jsp:include page="header.jsp" />
             <!-- ############################ Đăng nhập ############################## -->
             <div class="modal fade" id="dang_nhap">
                 <div class="modal-dialog">
@@ -338,7 +327,7 @@
                         <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=1">C&#244;ng nghệ phần mềm</option>
                         <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=2">Hệ thống th&#244;ng tin</option>
                         <option value="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=3">Mạng m&#225;y t&#237;nh</option>
-                        <!--
+                        <!--	
                         <option value="/Home/DanhSachDeTai?index=3&cn=4">Kỹ Thuật dữ liệu</option>
                         <option value="/Home/DanhSachDeTai?index=3&cn=5">Sư phạm</option>
                         <option value="/Home/DanhSachDeTai?index=3&cn=9">Tr&#237; tuệ nh&#226;n tạo</option>

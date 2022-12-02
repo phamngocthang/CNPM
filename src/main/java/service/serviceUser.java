@@ -94,60 +94,6 @@ public class serviceUser {
 		}
 	}
 
-//	public void showProfile() throws ServletException, IOException {
-//		resp.setContentType("text/html;charset=UTF-8");
-//		req.getRequestDispatcher("/web/profile.jsp").forward(req, resp);
-//	}
-//
-//	public void showEditUserProfile() throws ServletException, IOException {
-//		resp.setContentType("text/html;charset=UTF-8");
-//		req.getRequestDispatcher("/web/edit-profile.jsp").forward(req, resp);
-//	}
-//
-//	public void editUserProfile(Account user) {
-//		String fullName = req.getParameter("name");
-//		String phone = req.getParameter("phone");
-//		String gender = req.getParameter("sex");
-//		String address = req.getParameter("address");
-//
-//		user.setName(fullName);
-//		user.setPhone(phone);
-//		user.setGender(gender);
-//		user.setAddress(address);
-//	}
-//
-//	public void editAdminProfile(User user) {
-//		String username = req.getParameter("username");
-//		String name = req.getParameter("name");
-//		String password = req.getParameter("password");
-//		String gender = req.getParameter("gender");
-//		String phone = req.getParameter("phone");
-//		String address = req.getParameter("address");
-//
-//		user.setName(name);
-//		user.setUsername(username);
-//		user.setPassword(password);
-//		user.setPhone(phone);
-//		user.setGender(gender);
-//		user.setAddress(address);
-//	}
-//
-//	public void updateUserProfile() throws ServletException, IOException {
-//		resp.setContentType("text/html;charset=UTF-8");
-//		User user = (User) req.getSession().getAttribute("userLogged");
-//		editUserProfile(user);
-//		userDAO.update(user);
-//		showProfile();
-//	}
-//
-//	public void updateAdminProfile() throws ServletException, IOException {
-//		resp.setContentType("text/html;charset=UTF-8");
-//		User user = (User) req.getSession().getAttribute("adminLogged");
-//		editAdminProfile(user);
-//		userDAO.update(user);
-//		req.getRequestDispatcher("/admin/account-profile.jsp").forward(req, resp);
-//	}
-
 	public List<Account> getAllAccount() {
 		List<Account> accounts = null;
 		accounts = userDAO.getAll();

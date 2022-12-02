@@ -33,6 +33,7 @@
 		rel="stylesheet" />
 	<script src="Content/public/datepicker/jquery.simple-dtpicker.js"></script>
 	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+	
 </head>
 <body>
 	<!-- Header Section Begin-->
@@ -210,7 +211,7 @@
 										src="Content/public/images/house-icon.png" width="24"
 										height="24" /><span class="pull-right"><i
 											class="icon-chevron-right"></i></span> Trang Chủ</a> <a
-										href="/DangKyDeTai/DanhSachDeTai" class="list-group-item "><img
+										href="${pageContext.request.contextPath}/DanhSachDeTai?index=1&cn=-1" class="list-group-item "><img
 										src="Content/public/images/Actions-view-calendar-list-icon.png"
 										width="24" height="24" /><span class="pull-right"><i
 											class="icon-chevron-right"></i></span> Danh sách đề tài</a> <a
