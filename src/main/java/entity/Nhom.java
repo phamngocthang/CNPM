@@ -19,7 +19,7 @@ public class Nhom implements Serializable {
 
 	//bi-directional many-to-one association to Dangky
 	@OneToMany(mappedBy="nhom")
-	private List<Dangky> dangkies;
+	private List<DangKy> dangkies;
 
 	//bi-directional many-to-one association to Inforaccount
 	@ManyToOne
@@ -42,27 +42,27 @@ public class Nhom implements Serializable {
 		this.idNhom = idNhom;
 	}
 
-	public List<Dangky> getDangkies() {
+	public List<DangKy> getDangkies() {
 		return this.dangkies;
 	}
 
-	public void setDangkies(List<Dangky> dangkies) {
+	public void setDangkies(List<DangKy> dangkies) {
 		this.dangkies = dangkies;
 	}
 
-	public Dangky addDangky(Dangky dangky) {
-		getDangkies().add(dangky);
-		dangky.setNhom(this);
+//	public DangKy addDangky(DangKy dangky) {
+//		getDangkies().add(dangky);
+//		dangky.setNhom(this);
+//
+//		return dangky;
+//	}
 
-		return dangky;
-	}
-
-	public Dangky removeDangky(Dangky dangky) {
-		getDangkies().remove(dangky);
-		dangky.setNhom(null);
-
-		return dangky;
-	}
+//	public DangKy removeDangky(DangKy dangky) {
+//		getDangkies().remove(dangky);
+//		dangky.setNhom(null);
+//
+//		return dangky;
+//	}
 
 	public Inforaccount getInforaccount1() {
 		return this.inforaccount1;

@@ -23,7 +23,7 @@ public class Account implements Serializable {
 
 	//bi-directional many-to-one association to Dangky
 	@OneToMany(mappedBy="account")
-	private List<Dangky> dangkies;
+	private List<DangKy> dangkies;
 
 	//bi-directional one-to-one association to Inforaccount
 	@OneToOne(mappedBy="account")
@@ -56,22 +56,22 @@ public class Account implements Serializable {
 		this.password = password;
 	}
 
-	public List<Dangky> getDangkies() {
+	public List<DangKy> getDangkies() {
 		return this.dangkies;
 	}
 
-	public void setDangkies(List<Dangky> dangkies) {
+	public void setDangkies(List<DangKy> dangkies) {
 		this.dangkies = dangkies;
 	}
 
-	public Dangky addDangky(Dangky dangky) {
+	public DangKy addDangky(DangKy dangky) {
 		getDangkies().add(dangky);
 		dangky.setAccount(this);
 
 		return dangky;
 	}
 
-	public Dangky removeDangky(Dangky dangky) {
+	public DangKy removeDangky(DangKy dangky) {
 		getDangkies().remove(dangky);
 		dangky.setAccount(null);
 

@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQuery(name="Dangky.findAll", query="SELECT d FROM Dangky d")
-public class Dangky implements Serializable {
+public class DangKy implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -48,9 +48,9 @@ public class Dangky implements Serializable {
 	//bi-directional many-to-one association to Detai
 	@ManyToOne
 	@JoinColumn(name="IdDeTai")
-	private Detai detai;
+	private DeTai detai;
 
-	public Dangky() {
+	public DangKy() {
 	}
 
 	public int getIdDangKy() {
@@ -86,11 +86,11 @@ public class Dangky implements Serializable {
 		this.account = account;
 	}
 
-	public Detai getDetai() {
+	public DeTai getDetai() {
 		return this.detai;
 	}
 
-	public void setDetai(Detai detai) {
+	public void setDetai(DeTai detai) {
 		this.detai = detai;
 	}
 

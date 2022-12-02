@@ -1,8 +1,12 @@
 package entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -11,7 +15,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Loaidetai.findAll", query="SELECT l FROM Loaidetai l")
-public class Loaidetai implements Serializable {
+public class LoaiDeTai implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,9 +27,9 @@ public class Loaidetai implements Serializable {
 
 	//bi-directional many-to-one association to Detai
 	@OneToMany(mappedBy="loaidetai")
-	private List<Detai> detais;
+	private List<DeTai> detais;
 
-	public Loaidetai() {
+	public LoaiDeTai() {
 	}
 
 	public int getIdLoaiDeTai() {
@@ -52,26 +56,26 @@ public class Loaidetai implements Serializable {
 		this.tenLoaiDeTai = tenLoaiDeTai;
 	}
 
-	public List<Detai> getDetais() {
+	public List<DeTai> getDetais() {
 		return this.detais;
 	}
 
-	public void setDetais(List<Detai> detais) {
+	public void setDetais(List<DeTai> detais) {
 		this.detais = detais;
 	}
 
-	public Detai addDetai(Detai detai) {
-		getDetais().add(detai);
-		detai.setLoaidetai(this);
+//	public DeTai addDetai(DeTai detai) {
+//		getDetais().add(detai);
+//		detai.setLoaidetai(this);
+//
+//		return detai;
+//	}
 
-		return detai;
-	}
-
-	public Detai removeDetai(Detai detai) {
-		getDetais().remove(detai);
-		detai.setLoaidetai(null);
-
-		return detai;
-	}
+//	public DeTai removeDetai(DeTai detai) {
+//		getDetais().remove(detai);
+//		detai.setLoaidetai(null);
+//
+//		return detai;
+//	}
 
 }

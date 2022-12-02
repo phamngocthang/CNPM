@@ -1,13 +1,11 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import antlr.StringUtils;
-import dao.daoDetai;
-import java.util.ArrayList;
-import java.util.Iterator;
+import dao.DaoDeTai;
 public class serviceDetai {
-	daoDetai DaoDetai = new daoDetai();
+	DaoDeTai DaoDetai = new DaoDeTai();
 	public List<Object[]> loadDetai(int cn, int indexP) {
 		List<Object[]> list = new ArrayList<>();
 		String HQL;

@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import context.HibernateUtil;
 import entity.Inforaccount;
 
-public class daoDetai {
+public class DaoDeTai {
 	public List<Object[]> getDetai(String HQL, int offset, int limit) {
 		List<Object[]> list = new ArrayList<>();
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {

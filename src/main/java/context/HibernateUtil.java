@@ -2,19 +2,16 @@ package context;
 
 import java.util.Properties;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
-import org.hibernate.hql.internal.CollectionProperties;
-import org.hibernate.mapping.Property;
 import org.hibernate.service.ServiceRegistry;
 
 import entity.Account;
-import entity.Chuyennganh;
-import entity.Dangky;
-import entity.Detai;
+import entity.ChuyenNganh;
+import entity.DangKy;
+import entity.DeTai;
 import entity.Inforaccount;
 public class HibernateUtil {
     
@@ -27,7 +24,7 @@ public class HibernateUtil {
 		pros.put (Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
 		pros.put (Environment.URL, "jdbc:mysql://localhost:3306/quanlydetai");
 		pros.put (Environment.USER, "root");
-		pros.put (Environment.PASS, "816570");
+		pros.put (Environment.PASS, "123456789");
 		pros.put (Environment.SHOW_SQL, "true");
 		pros.put(Environment.AUTOCOMMIT, "true");
 		pros.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
@@ -37,10 +34,10 @@ public class HibernateUtil {
 		conf.setProperties(pros);
 		
 		conf.addAnnotatedClass(Account.class);
-		conf.addAnnotatedClass(Chuyennganh.class);
-		conf.addAnnotatedClass(Dangky.class);
+		conf.addAnnotatedClass(ChuyenNganh.class);
+		conf.addAnnotatedClass(DangKy.class);
 		conf.addAnnotatedClass(Inforaccount.class);
-		conf.addAnnotatedClass(Detai.class);
+		conf.addAnnotatedClass(DeTai.class);
 		
 		ServiceRegistry registry = new StandardServiceRegistryBuilder()
 				.applySettings(conf.getProperties()).build();

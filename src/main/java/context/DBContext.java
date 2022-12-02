@@ -41,7 +41,7 @@ public class DBContext {
     
 	private static String DB_URL = "jdbc:mysql://localhost:3306/quanlydetai";
     private static String USER_NAME = "root";
-    private static String PASSWORD = "816570";
+    private static String PASSWORD = "123456789";
    
     public Connection getConnection() throws Exception {
     	Class.forName("com.mysql.cj.jdbc.Driver");

@@ -33,7 +33,7 @@ public class Inforaccount implements Serializable {
 	//bi-directional many-to-one association to Chuyennganh
 	@ManyToOne
 	@JoinColumn(name="ChuyenNganh")
-	private Chuyennganh chuyennganh;
+	private ChuyenNganh chuyennganh;
 
 
 	public Inforaccount() {
@@ -87,11 +87,11 @@ public class Inforaccount implements Serializable {
 		this.account = account;
 	}
 
-	public Chuyennganh getChuyennganh() {
+	public ChuyenNganh getChuyennganh() {
 		return this.chuyennganh;
 	}
 
-	public void setChuyennganh(Chuyennganh chuyennganh) {
+	public void setChuyennganh(ChuyenNganh chuyennganh) {
 		this.chuyennganh = chuyennganh;
 	}
 

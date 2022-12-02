@@ -10,8 +10,8 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Chuyennganh.findAll", query="SELECT c FROM Chuyennganh c")
-public class Chuyennganh implements Serializable {
+@NamedQuery(name="Chuyennganh.findAll", query="SELECT c FROM chuyennganh c")
+public class ChuyenNganh implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,13 +21,13 @@ public class Chuyennganh implements Serializable {
 
 	//bi-directional many-to-one association to Detai
 	@OneToMany(mappedBy="chuyennganh")
-	private List<Detai> detais;
+	private List<DeTai> detais;
 
 	//bi-directional many-to-one association to Inforaccount
 	@OneToMany(mappedBy="chuyennganh")
 	private List<Inforaccount> inforaccounts;
 
-	public Chuyennganh() {
+	public ChuyenNganh() {
 	}
 
 	public int getIdChuyenNganh() {
@@ -46,22 +46,22 @@ public class Chuyennganh implements Serializable {
 		this.tenChuyenNganh = tenChuyenNganh;
 	}
 
-	public List<Detai> getDetais() {
+	public List<DeTai> getDetais() {
 		return this.detais;
 	}
 
-	public void setDetais(List<Detai> detais) {
+	public void setDetais(List<DeTai> detais) {
 		this.detais = detais;
 	}
 
-	public Detai addDetai(Detai detai) {
+	public DeTai addDetai(DeTai detai) {
 		getDetais().add(detai);
 		detai.setChuyennganh(this);
 
 		return detai;
 	}
 
-	public Detai removeDetai(Detai detai) {
+	public DeTai removeDetai(DeTai detai) {
 		getDetais().remove(detai);
 		detai.setChuyennganh(null);
 
@@ -76,18 +76,18 @@ public class Chuyennganh implements Serializable {
 		this.inforaccounts = inforaccounts;
 	}
 
-	public Inforaccount addInforaccount(Inforaccount inforaccount) {
-		getInforaccounts().add(inforaccount);
-		inforaccount.setChuyennganh(this);
+//	public Inforaccount addInforaccount(Inforaccount inforaccount) {
+//		getInforaccounts().add(inforaccount);
+//		inforaccount.setChuyennganh(this);
+//
+//		return inforaccount;
+//	}
 
-		return inforaccount;
-	}
-
-	public Inforaccount removeInforaccount(Inforaccount inforaccount) {
-		getInforaccounts().remove(inforaccount);
-		inforaccount.setChuyennganh(null);
-
-		return inforaccount;
-	}
+//	public Inforaccount removeInforaccount(Inforaccount inforaccount) {
+//		getInforaccounts().remove(inforaccount);
+//		inforaccount.setChuyennganh(null);
+//
+//		return inforaccount;
+//	}
 
 }

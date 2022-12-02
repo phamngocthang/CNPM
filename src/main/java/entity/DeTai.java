@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Detai.findAll", query="SELECT d FROM Detai d")
-public class Detai implements Serializable {
+public class DeTai implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,14 +31,14 @@ public class Detai implements Serializable {
 
 	//bi-directional many-to-one association to Dangky
 	@OneToMany(mappedBy="detai")
-	private List<Dangky> dangkies;
+	private List<DangKy> dangkies;
 
 	//bi-directional many-to-one association to Chuyennganh
 	@ManyToOne
 	@JoinColumn(name="ChuyenNganh")
-	private Chuyennganh chuyennganh;
+	private ChuyenNganh chuyennganh;
 
-	public Detai() {
+	public DeTai() {
 	}
 
 	public int getIdDeTai() {
@@ -97,33 +97,33 @@ public class Detai implements Serializable {
 		this.yeuCau = yeuCau;
 	}
 
-	public List<Dangky> getDangkies() {
+	public List<DangKy> getDangkies() {
 		return this.dangkies;
 	}
 
-	public void setDangkies(List<Dangky> dangkies) {
+	public void setDangkies(List<DangKy> dangkies) {
 		this.dangkies = dangkies;
 	}
 
-	public Dangky addDangky(Dangky dangky) {
+	public DangKy addDangky(DangKy dangky) {
 		getDangkies().add(dangky);
 		dangky.setDetai(this);
 
 		return dangky;
 	}
 
-	public Dangky removeDangky(Dangky dangky) {
+	public DangKy removeDangky(DangKy dangky) {
 		getDangkies().remove(dangky);
 		dangky.setDetai(null);
 
 		return dangky;
 	}
 
-	public Chuyennganh getChuyennganh() {
+	public ChuyenNganh getChuyennganh() {
 		return this.chuyennganh;
 	}
 
-	public void setChuyennganh(Chuyennganh chuyennganh) {
+	public void setChuyennganh(ChuyenNganh chuyennganh) {
 		this.chuyennganh = chuyennganh;
 	}
 
