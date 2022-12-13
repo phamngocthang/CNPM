@@ -89,7 +89,12 @@ public class serviceUser {
 				resp.sendRedirect(redirectURL);
 			} else {
 				resp.setContentType("text/html;charset=UTF-8");
-				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+				if(user.getLoaiTaiKhoan()==1 || user.getLoaiTaiKhoan()==2)
+					req.getRequestDispatcher("/index.jsp").forward(req, resp);
+				else if(user.getLoaiTaiKhoan()==3)
+					req.getRequestDispatcher("/TBM.jsp").forward(req, resp);
+				else if(user.getLoaiTaiKhoan()==4)
+					req.getRequestDispatcher("/admin.jsp").forward(req, resp);
 			}
 		}
 	}
