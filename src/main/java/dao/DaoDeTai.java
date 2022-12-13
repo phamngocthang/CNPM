@@ -8,9 +8,10 @@ import org.hibernate.query.Query;
 import org.hibernate.Session;
 
 import context.HibernateUtil;
+import entity.DeTai;
 import entity.Inforaccount;
 
-public class DaoDeTai {
+public class DaoDeTai extends IDAO<DeTai>{
 	public List<Object[]> getDetai(String HQL, int offset, int limit) {
 		List<Object[]> list = new ArrayList<>();
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -50,17 +51,13 @@ public class DaoDeTai {
 		return kq;
 	}
 	
+	@Override
+	public int count(String queryName) {
+		// TODO Auto-generated method stub
+		return super.count(queryName);
+	}
+	
 	public int getamountDTByCN(String HQL) {
-		int count = -1;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			Query query = session.createNativeQuery(HQL);
-
-			count = Integer.parseInt(query.uniqueResult().toString()); 
-			
-			session.close();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return count;
+		return count(HQL);
 	}
 }

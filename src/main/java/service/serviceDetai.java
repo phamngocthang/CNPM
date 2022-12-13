@@ -55,10 +55,10 @@ public class serviceDetai {
 	public int getamountDTByCN(int cn) {
 		String HQL = "";
 		if(cn == -1) {
-			HQL = "select count(*) from dangky";
+			HQL = "select count(*) from DangKy";
 		}
 		else {
-			HQL = "select count(*) from dangky INNER JOIN detai on dangky.IdDeTai = detai.IdDeTai WHERE detai.ChuyenNganh = " + cn;
+			HQL = "select count(*) from DangKy DK, DeTai D where DK.detai = D.idDeTai and D.chuyennganh = " + cn;
 		}
 		
 		return DaoDetai.getamountDTByCN(HQL);

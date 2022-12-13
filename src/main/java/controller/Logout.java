@@ -20,7 +20,6 @@ public class Logout extends HttpServlet {
 			throws ServletException, IOException {
 		req.getSession().removeAttribute("userLogged");
 		req.getRequestDispatcher("/Login").forward(req, resp);
-
 	}
 
 }

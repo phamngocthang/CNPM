@@ -37,6 +37,7 @@ public class ChiTietDeTai extends HttpServlet {
 		request.setAttribute("listCT", listCT);
 		request.setAttribute("listName", listName);
 		request.setAttribute("count", count);
+		request.setAttribute("id", id);
 		request.getRequestDispatcher("ChiTietDeTai.jsp").forward(request, response);
     }
 

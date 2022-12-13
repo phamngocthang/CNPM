@@ -9,15 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.DaoInforaccount;
 import dao.DaoUser;
 import entity.Account;
+import entity.Inforaccount;
 
 public class serviceUser {
 	private DaoUser userDAO;
 	private serviceResult serviceResult;
-
+	DaoInforaccount daoInfo = new DaoInforaccount();
 	HttpServletResponse resp;
 	HttpServletRequest req;
+	
+	
 
 	public serviceUser(HttpServletRequest req, HttpServletResponse resp)
     {
@@ -25,9 +29,13 @@ public class serviceUser {
         this.resp = resp;
         userDAO = new DaoUser();
     }
+	
+	public Inforaccount getInfoUser(String userName) {
+		return daoInfo.findSingle(Inforaccount.class, userName);
+	}
 
 	public Account authenticate(String username, String password) {
-		Account user = userDAO.get(username);
+		Account user = userDAO.findSingle(Account.class, username);
 		if (user != null) {
 			if (password.equals(user.getPassword())) {
 				return user;
@@ -89,19 +97,10 @@ public class serviceUser {
 				resp.sendRedirect(redirectURL);
 			} else {
 				resp.setContentType("text/html;charset=UTF-8");
-				if(user.getLoaiTaiKhoan()==1 || user.getLoaiTaiKhoan()==2)
-					req.getRequestDispatcher("/index.jsp").forward(req, resp);
-				else if(user.getLoaiTaiKhoan()==3)
-					req.getRequestDispatcher("/TBM.jsp").forward(req, resp);
-				else if(user.getLoaiTaiKhoan()==4)
-					req.getRequestDispatcher("/admin.jsp").forward(req, resp);
+				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 			}
 		}
 	}
 
-	public List<Account> getAllAccount() {
-		List<Account> accounts = null;
-		accounts = userDAO.getAll();
-		return accounts;
-	}
+
 }

@@ -27,6 +27,7 @@ $(function ()
         $(".footable").trigger("footable_initialized")
     })
 });
+/*
 $(document).ready(function ()
 {
     $("#search_cn").change(function () {
@@ -34,6 +35,7 @@ $(document).ready(function ()
         $("#search_nienkhoa").val() = -1
     })
 });
+*/
 $(document).ready(function ()
 {
     $("#search_nienkhoa").change(function () {
