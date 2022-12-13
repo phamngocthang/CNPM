@@ -8,10 +8,10 @@
                     <div id="banner">
                         <div id="login-area">
                         	<c:if test="${userLogged == null }">
-                                   <button type="button" class="btn btn-success" onclick="location.href='login.jsp';">Đăng Nhập</button>
+                                   <button type="button" class="btn btn-success" onclick="location.href='Login';">Đăng Nhập</button>
                             </c:if>
                             <c:if test="${userLogged != null }">
-                            		<button type="button" class="btn btn-success" onclick="location.href='#';">My Account</button>
+                            		<button type="button" class="btn btn-success" onclick="location.href='ShowAndUpdateProfile';">My Account</button>
                                    <button type="button" class="btn btn-success" onclick="location.href='Logout';">Đăng Xuất</button>
                             </c:if>
                         </div>
