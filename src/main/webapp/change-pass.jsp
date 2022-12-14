@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Profile</title>
+<title>Đổi mật khẩu</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -26,17 +26,16 @@
 						class="font-weight-bold">${account.fullName}</span><span
 						class="text-black-50">${account.email}</span><span> </span>
 					<button type="button" class="btn btn-success"
-						onclick="location.href='ChangePassword';">Đổi mật khẩu</button>
-					<button type="button" class="btn btn-success"
 						onclick="location.href='index.jsp';">Trang chủ</button>
 				</div>
 			</div>
 			<div class="col-md-5 border-right">
-				<div class="p-3 py-5">
-					<div class="d-flex justify-content-between align-items-center mb-3">
-						<h4 class="text-right">Profile</h4>
-					</div>
-					<form class="card-body" method="post" action="ShowAndUpdateProfile">
+				<form class="card-body" method="post" action="ChangePassword">
+					<div class="p-3 py-5">
+						<div
+							class="d-flex justify-content-between align-items-center mb-3">
+							<h4 class="text-right">Đổi mật khẩu</h4>
+						</div>
 						<div class="row mt-2">
 							<div class="col-md-12">
 								<label class="labels">Tên đăng nhập</label> <input type="text"
@@ -44,37 +43,36 @@
 									placeholder="Tên đăng nhập" value="${account.userName}">
 							</div>
 							<div class="col-md-12">
-								<label class="labels">Tên</label> <input type="text"
-									class="form-control" name="fullname" placeholder="Nhập tên"
-									value="${account.fullName}">
-							</div>
-
-							<div class="col-md-12">
-								<label class="labels">Địa chỉ</label><input type="text"
-									class="form-control" name="address" placeholder="Nhập địa chỉ"
-									value="${account.address}">
+								<label class="labels">Mật khẩu cũ</label> <input type="password"
+									class="form-control" name="oldPassword"
+									placeholder="Nhập mật khẩu cũ">
 							</div>
 							<div class="col-md-12">
-								<label class="labels">Số điện thoại</label><input type="text"
-									class="form-control" name="phone"
-									placeholder="Nhập số điện thoại" value="${account.phonenumber}">
+								<label class="labels">Mật khẩu mới</label><input type="password"
+									class="form-control" name="newPassword"
+									placeholder="Nhập mật khẩu mới">
 							</div>
 							<div class="col-md-12">
-								<label class="labels">Chuyên ngành</label><input type="text"
-									readonly class="form-control" name="specialized"
-									placeholder="Chuyên ngành"
-									value="${account.chuyennganh.idChuyenNganh}">
+								<label class="labels">Xác nhận lại mật khẩu</label><input
+									type="password" class="form-control" name="confirmPassword"
+									placeholder="Nhập lại mật khẩu mới">
 							</div>
 						</div>
 						<div class="mt-5 text-center">
-							<button class="btn btn-primary profile-button" type="submit">Cập
-								nhật thông tin</button>
+							<button class="btn btn-primary profile-button" type="submit">Đổi
+								mật khẩu</button>
+							<button class="btn btn-primary profile-button" type="button"
+								onclick="location.href='ShowAndUpdateProfile';">Hủy</button>
 						</div>
-					</form>
-				</div>
+					</div>
+				</form>
+				<c:if test="${message != null}">
+					<div class="col-sm-12 d-flex justify-content-end my-3">
+						<p class="text-${message.type}">${message.body}</p>
+					</div>
+				</c:if>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

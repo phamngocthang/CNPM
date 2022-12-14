@@ -30,12 +30,17 @@ public class serviceUser {
         userDAO = new DaoUser();
     }
 	
+	public serviceUser()
+    {
+        userDAO = new DaoUser();
+    }
+	
 	public Inforaccount getInfoUser(String userName) {
 		return daoInfo.findSingle(Inforaccount.class, userName);
 	}
 
 	public Account authenticate(String username, String password) {
-		Account user = userDAO.findSingle(Account.class, username);
+		Account user = userDAO.findUserCreated(username);
 		if (user != null) {
 			if (password.equals(user.getPassword())) {
 				return user;
