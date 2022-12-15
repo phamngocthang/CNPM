@@ -2,6 +2,8 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+
 import java.util.List;
 
 
@@ -38,6 +40,11 @@ public class DeTai implements Serializable {
 	@JoinColumn(name="ChuyenNganh")
 	private ChuyenNganh chuyennganh;
 
+	//bi-directional many-to-one association to Loaidetai
+	@ManyToOne
+	@JoinColumn(name="IdLoaiDeTai")
+	private LoaiDeTai loaidetai;
+	
 	public DeTai() {
 	}
 
@@ -127,4 +134,11 @@ public class DeTai implements Serializable {
 		this.chuyennganh = chuyennganh;
 	}
 
+	public LoaiDeTai getLoaidetai() {
+		return this.loaidetai;
+	}
+
+	public void setLoaidetai(LoaiDeTai loaidetai) {
+		this.loaidetai = loaidetai;
+	}
 }

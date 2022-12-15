@@ -9,9 +9,6 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import entity.Account;
-import entity.ChuyenNganh;
-import entity.DangKy;
-import entity.DeTai;
 import entity.Inforaccount;
 public class HibernateUtil {
     

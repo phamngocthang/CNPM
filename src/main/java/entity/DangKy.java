@@ -18,24 +18,24 @@ public class DangKy implements Serializable {
 
 	private int diem;
 	
-	private String TrNhom;
+	private String trNhom;
 	
-	private String ThanhVien;
+	private String thanhVien;
 
 	public String getTrNhom() {
-		return TrNhom;
+		return this.trNhom;
 	}
 
 	public void setTrNhom(String trNhom) {
-		TrNhom = trNhom;
+		this.trNhom = trNhom;
 	}
 
 	public String getThanhVien() {
-		return ThanhVien;
+		return this.thanhVien;
 	}
 
 	public void setThanhVien(String thanhVien) {
-		ThanhVien = thanhVien;
+		this.thanhVien = thanhVien;
 	}
 
 	private String GVPhanBien;

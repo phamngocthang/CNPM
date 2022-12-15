@@ -97,7 +97,7 @@ public class serviceUser {
 				resp.sendRedirect(redirectURL);
 			} else {
 				resp.setContentType("text/html;charset=UTF-8");
-				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+				req.getRequestDispatcher("/LoadLoaiDeTai").forward(req, resp);
 			}
 		}
 	}

@@ -2,7 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
 
 import org.hibernate.query.Query;
 import org.hibernate.Session;
@@ -12,19 +12,6 @@ import entity.DeTai;
 import entity.Inforaccount;
 
 public class DaoDeTai extends IDAO<DeTai>{
-	public List<Object[]> getDetai(String HQL, int offset, int limit) {
-		List<Object[]> list = new ArrayList<>();
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			Query query = session.createNativeQuery(HQL);
-
-			list = (List<Object[]>)query.setFirstResult(offset).setMaxResults(limit).list();
-			session.close();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return list;
-	}
-	
 	public Inforaccount getNameByID(String HQL, String id) {
 		Inforaccount acc = new Inforaccount();
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -38,19 +25,6 @@ public class DaoDeTai extends IDAO<DeTai>{
 		return acc;
 	}
 	
-	public List<Object[]> getChiTietDetai(String HQL, int id) {
-		List<Object[]> kq = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			Query query = session.createNativeQuery(HQL);
-			query.setParameter("id", id);
-			kq = query.getResultList();
-			session.close();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return kq;
-	}
-	
 	@Override
 	public int count(String queryName) {
 		// TODO Auto-generated method stub
@@ -59,5 +33,16 @@ public class DaoDeTai extends IDAO<DeTai>{
 	
 	public int getamountDTByCN(String HQL) {
 		return count(HQL);
+	}
+	
+	@Override
+	public List<DeTai> findAllLimit(String queryString, int offset, int amount) {
+		// TODO Auto-generated method stub
+		return super.findAllLimit(queryString, offset, amount);
+	}
+	@Override
+	public DeTai findSingle(Class<DeTai> type, Object key) {
+		// TODO Auto-generated method stub
+		return super.findSingle(type, key);
 	}
 }

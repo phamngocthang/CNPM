@@ -129,9 +129,9 @@ public class IDAO<T> {
 		return result;
 	}
 	
-	public List<T> findAllLimit(String queryString, int amount) {
+	public List<T> findAllLimit(String queryString, int offset, int amount) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<T> list = session.createQuery(queryString).setMaxResults(amount).getResultList();
+		List<T> list = session.createQuery(queryString).setFirstResult(offset).setMaxResults(amount).list();
 		session.close();
 		return list;
 	}

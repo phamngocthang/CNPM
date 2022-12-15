@@ -1,90 +1,87 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import dao.DaoDangKy;
 import dao.DaoDeTai;
+import dao.DaoInforaccount;
+import entity.DangKy;
+import entity.DeTai;
+import entity.Inforaccount;
 public class serviceDetai {
 	DaoDeTai DaoDetai = new DaoDeTai();
-	public List<Object[]> loadDetai(int cn, int indexP) {
-		List<Object[]> list = new ArrayList<>();
+	DaoDangKy daoDangKy = new DaoDangKy();
+	DaoInforaccount daoInforaccount = new DaoInforaccount();
+	public List<DangKy> loadDetai(int cn, int indexP, int idloai) {
+		List<DangKy> list = new ArrayList<>();
 		String HQL;
 		if(cn == -1) {
-			HQL = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName, TrNhom, ThanhVien from dangky as dk INNER JOIN detai as d ON \r\n"
-					+ "dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh= d.ChuyenNganh INNER JOIN inforaccount as i on i.UserName = dk.GVHuongDan WHERE "
-					+ "dk.GVHuongDan IS NOT NULL";
+			HQL = "from DangKy dk where dk.account != '' and dk.detai.loaidetai=" + idloai + " order by dk.idDangKy ASC";
 		}
 		else {
-			HQL = "Select dk.IdDangKy, d.TenDeTai, chuyennganh.TenChuyenNganh, i.FullName, TrNhom, ThanhVien from dangky as dk INNER JOIN detai as d ON \r\n"
-					+ "dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh= d.ChuyenNganh INNER JOIN inforaccount as i on i.UserName = dk.GVHuongDan WHERE "
-					+ "dk.GVHuongDan IS NOT NULL and chuyennganh.IdChuyenNganh="+cn;
+			HQL = "from DangKy dk where dk.account != '' and dk.detai.loaidetai=" + idloai + " and dk.detai.chuyennganh="+cn + " order by dk.idDangKy ASC";
 		}
 		
-
-		list = DaoDetai.getDetai(HQL, (indexP-1)*5, 5);
+		list = daoDangKy.findAllLimit(HQL, (indexP-1)*5, 5);
 		return list;
 	}
 	
-	public List<Object[]> getChiTietDetai(int id) {
-		List<Object[]> ctdt;
-		String HQL = "select TenDeTai, MucTieu, YeuCau, SanPham, TenChuyenNganh, TenLoaiDeTai, NienKhoa, TrNhom, ThanhVien, GVHuongDan, GVPhanBien, Diem from dangky as dk INNER JOIN detai as d on dk.IdDeTai = d.IdDeTai INNER JOIN chuyennganh on chuyennganh.IdChuyenNganh = d.ChuyenNganh \r\n"
-				+ "WHERE IdDangKy = :id";
-		
-
-		ctdt = DaoDetai.getChiTietDetai(HQL, id);
-		return ctdt;
-	}
-	public List<String> getNameByID(int idDK) {
-		List<String> ds = new ArrayList<>();
-		String HQL = "select A.FullName from Inforaccount A where A.UserName=:id";
-		List<Object[]> list = getChiTietDetai(idDK);
-		for (Object[] objects : list) {
-			for (int i = 7; i <= 10; i++) {
-				try {
-					ds.add(DaoDetai.getNameByID(HQL, objects[i].toString()).getFullName());
-				} catch (Exception e) {
-					ds.add("");
-				}
-			}
-		}
-		return ds;
-		
-	}
-	
-	
-	public int getamountDTByCN(int cn) {
+	public int getamountDTByCN(int cn, int idloai) {
 		String HQL = "";
 		if(cn == -1) {
-			HQL = "select count(*) from DangKy";
+			HQL = "select count(*) from DangKy dk where dk.account != '' and dk.detai.loaidetai="+idloai;
 		}
 		else {
-			HQL = "select count(*) from DangKy DK, DeTai D where DK.detai = D.idDeTai and D.chuyennganh = " + cn;
+			HQL = "select count(*) from DangKy dk where dk.account != '' and dk.detai.chuyennganh="+cn+ " and dk.detai.loaidetai="+idloai;
 		}
 		
 		return DaoDetai.getamountDTByCN(HQL);
  	}
 	
-	
-	public List<Integer> getAmountMember(List<Object[]> listM) {
-		List<Integer> list = new ArrayList<>();
-
-		for (Object[] objects : listM) {
-			int count = 0;
-			if(objects[4].toString() != null) {
-				count++;
-			}
-			try {
-				if(!objects[5].toString().equals("")) {
-					count++;
-				}
-			}
-			catch (Exception e){
-				
-			}
-			finally {
-				list.add(count);
-			}
+	public int getamountDTGV(int cn, int idloai) {
+		String HQL = "";
+		if(cn == -1) {
+			HQL = "select count(*) from DeTai d where d.loaidetai="+idloai;
 		}
+		else {
+			HQL = "select count(*) from DeTai d where d.chuyennganh="+cn+ " and d.loaidetai="+idloai;
+		}
+		
+		return DaoDetai.getamountDTByCN(HQL);
+ 	}
+	
+	public List<DeTai> loadDetaiGV(int cn, int indexP, int idloai) {
+		List<DeTai> list = new ArrayList<>();
+		String HQL;
+		if(cn == -1) {
+			HQL = "from DeTai d where d.loaidetai=" + idloai + " order by d.idDeTai ASC";
+		}
+		else {
+			HQL = "from DeTai d where d.loaidetai=" + idloai + " and d.chuyennganh="+cn + " order by d.idDeTai ASC";
+		}
+		
+		list = DaoDetai.findAllLimit(HQL, (indexP-1)*5, 5);
 		return list;
 	}
+	
+	public DangKy getChiTietDetai(int id) {
+		String HQL = "From DangKy dk Where dk.idDangKy = :id";
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", id);
+		return daoDangKy.findSingleWithParams(HQL, params);
+	}
+	
+	public DeTai getDeTaiGV(int id) {
+		return DaoDetai.findSingle(DeTai.class, id);
+	}
+	
+	public Inforaccount getInforByUserName(String userName) {
+		return daoInforaccount.findSingle(Inforaccount.class, userName);
+	}
+
+	
+	
 }

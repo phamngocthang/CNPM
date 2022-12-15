@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import org.hibernate.Session;
 
 import context.HibernateUtil;
-import entity.DeTai;
 import entity.Inforaccount;
 
 public class DaoInforaccount extends IDAO<Inforaccount>{
