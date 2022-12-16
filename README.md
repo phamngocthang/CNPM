@@ -21,8 +21,8 @@
 - Giải thích giao diện: https://docs.google.com/document/d/1spZV4bis-Nx2grBTKfSHbIG02eY414Wy/edit?usp=share_link&ouid=102783634035363831825&rtpof=true&sd=true
 - Daily Scrum Meeting: https://docs.google.com/document/d/1LhmCdcDL1zKsIdFhGDNTz2ju5aM6IaQQ/edit?usp=share_link&ouid=102783634035363831825&rtpof=true&sd=true
 - Video:
-   + Meeting: 
-   + Demo: 
+   + Meeting: https://drive.google.com/file/d/1HnbeikItv8TKJqCn1oQtibHOGUF4wznA/view?usp=share_link
+   + Demo: https://drive.google.com/file/d/1CSyxt8i1TrcgewKkKYezGm94yIIgka8Y/view?usp=share_link
   
 ## Kết quả đạt được 
 ### Các chức năng của Sprint 1: 
