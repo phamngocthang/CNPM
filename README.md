@@ -31,4 +31,7 @@
 - Đổi mật khẩu
 - Quản lý thông tin cá nhân
 - Quản lý đề tài dành cho sinh viên
-- Quản lý đề tài dành cho sinh viên
+- Quản lý đề tài dành cho giảng viên
+- Admin: Tạo đợt đăng ký đề tài, quản lý đề tài
+- Trường bộ môn: Phân công giảng viên cho đề tài, thống kê đề tài, cho điểm
+
