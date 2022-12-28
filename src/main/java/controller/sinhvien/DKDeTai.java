@@ -32,6 +32,7 @@ public class DKDeTai extends HttpServlet {
 			response.sendRedirect("login.jsp");
         	return;
 		}
+		
 		if(account.getLoaiTaiKhoan() == 2) { // Giang Vien
 			mess = svDangKy.DKDeTaiGiangVien(id, account.getUsername());
 		}

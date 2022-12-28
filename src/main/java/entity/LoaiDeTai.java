@@ -61,6 +61,11 @@ public class LoaiDeTai implements Serializable {
 		return this.tenLoaiDeTai;
 	}
 
+	public LoaiDeTai(int idLoaiDeTai) {
+		super();
+		this.idLoaiDeTai = idLoaiDeTai;
+	}
+
 	public void setTenLoaiDeTai(String tenLoaiDeTai) {
 		this.tenLoaiDeTai = tenLoaiDeTai;
 	}

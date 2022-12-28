@@ -42,12 +42,6 @@ public class LoadDeTai extends HttpServlet {
 		int endP = getEndPage(cn, 5, idloai);
 		int totalD = sv.getamountDTByCN(cn, idloai);
 		
-		/*
-		for (DangKy dangKy : listD) {
-			System.out.println(dangKy.getTrNhom());
-			System.out.println(dangKy.getThanhVien());
-		}
-		*/
 		request.setAttribute("listD", listD);
 		request.setAttribute("tag", index);
 		request.setAttribute("tagcn", cn);

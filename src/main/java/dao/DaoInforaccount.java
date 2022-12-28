@@ -16,4 +16,10 @@ public class DaoInforaccount extends IDAO<Inforaccount>{
 		// TODO Auto-generated method stub
 		return super.findSingle(type, key);
 	}
+	@Override
+	public List<Inforaccount> findAll(String queryString) {
+		// TODO Auto-generated method stub
+		queryString = "from Inforaccount I where I.account.loaiTaiKhoan=2";
+		return super.findAll(queryString);
+	}
 }

@@ -29,7 +29,6 @@ public class DeTai implements Serializable {
 	
 	private int nienKhoa;
 
-	private String tenLoaiDeTai;
 
 	//bi-directional many-to-one association to Dangky
 	@OneToMany(mappedBy="detai")
@@ -62,14 +61,6 @@ public class DeTai implements Serializable {
 
 	public void setNienKhoa(int nienKhoa) {
 		this.nienKhoa = nienKhoa;
-	}
-
-	public String getTenLoaiDeTai() {
-		return this.tenLoaiDeTai;
-	}
-
-	public void setTenLoaiDeTai(String tenLoaiDeTai) {
-		this.tenLoaiDeTai = tenLoaiDeTai;
 	}
 
 	public String getMucTieu() {

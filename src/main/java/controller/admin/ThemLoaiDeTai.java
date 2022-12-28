@@ -26,8 +26,8 @@ import service.serviceUser;
 public class ThemLoaiDeTai extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
-		
+		response.setContentType("text/html;charset=UTF-8"); 
+		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("tenLoai");
 		String ngayBatDau = request.getParameter("ngayBatDau");
 		String ngayKetThuc = request.getParameter("ngayKetThuc");

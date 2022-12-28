@@ -34,6 +34,8 @@ public class DeTaiDangKy extends HttpServlet {
 		DangKy result = null;
 		boolean state = true;
 		int amountMem = 0;
+		
+		
 		List<String> listMem = new ArrayList<>();
 		if(account.getLoaiTaiKhoan() == 1 ) {
 			result = svDK.getDTByAccount(account.getUsername());

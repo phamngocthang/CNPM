@@ -20,8 +20,6 @@ public class serviceUser {
 	DaoInforaccount daoInfo = new DaoInforaccount();
 	HttpServletResponse resp;
 	HttpServletRequest req;
-	
-	
 
 	public serviceUser(HttpServletRequest req, HttpServletResponse resp)
     {
@@ -96,8 +94,18 @@ public class serviceUser {
 				session.removeAttribute("redirectURL");
 				resp.sendRedirect(redirectURL);
 			} else {
-				resp.setContentType("text/html;charset=UTF-8");
-				req.getRequestDispatcher("/LoadLoaiDeTai").forward(req, resp);
+				if(user.getLoaiTaiKhoan() == 1 || user.getLoaiTaiKhoan() == 2) {
+					resp.setContentType("text/html;charset=UTF-8");
+					req.getRequestDispatcher("/LoadLoaiDeTai").forward(req, resp);
+				}
+				else if(user.getLoaiTaiKhoan() == 3) {
+					resp.setContentType("text/html;charset=UTF-8");
+					req.getRequestDispatcher("/LoaiDeTaiTBM").forward(req, resp);
+				}
+				else {
+					resp.setContentType("text/html;charset=UTF-8");
+					req.getRequestDispatcher("/LoaiDeTaiAdmin").forward(req, resp);
+				}
 			}
 		}
 	}

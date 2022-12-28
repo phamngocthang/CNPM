@@ -81,7 +81,7 @@
           </li>
           <li class='p-2 hover:bg-slate-200 rounded-md flex items-center gap-2'>
             <i class="w-[32px] fa-solid fa-user"></i>
-            <a href="LoaiDeTaiAdmin">Quản Lý Đề Tài</a>
+            <a href="LoaiDeTaiTBM">Quản Lý Đề Tài</a>
           </li>
         </ul>
       </nav>
@@ -91,8 +91,7 @@
       <div class='pb-4'>
         <h1 class='uppercase text-2xl font-semibold text-center p-4'>Quản lý đề tài</h1>
 
-        <button onclick="openAddForm()"
-			          class='bg-blue-500 hover:bg-blue-400 text-center text-white p-2 mb-2 rounded-md shadow-md'>Thêm đề tài</button>
+        
         <c:if test="${fn:length(listD) == 0}">
         			<br>
         			<br>
@@ -102,7 +101,6 @@
 						">Chưa có đề tài nào trong loại đề tài này</h1>
         </c:if>
         <c:if test="${fn:length(listD) > 0}">
- 
         <table class='bg-gray-200 table-auto w-full shadow-md border-b-2 border-yellow-500'>
           <thead class='bg-yellow-500'>
             <tr>
@@ -136,10 +134,15 @@
 		              <button>
 	                  		<i></i>
 		              </button>
-		              <a href ="GetDeTai?idDeTai=${listD[position.current].idDeTai}">
+		              <a href ="GetDeTaiTBM?idDeTai=${listD[position.current].idDeTai}">
 		              <button>
 	                  		<i class="fa-solid fa-pen-to-square hover:text-yellow-500 cursor-pointer"></i>
-		              </button>		              
+		              </button>
+		              <a href="GetDangKy?idDeTai=${listD[position.current].idDeTai}">
+		              <button>
+							<i class="fas fa-sync-alt hover:text-red-600 cursor-pointer"></i>
+		              </button>
+		              </a>          
 		              </td>
 		            </tr>
             	</c:forEach>

@@ -63,7 +63,7 @@
           </li>
           <li class='p-2 hover:bg-slate-200 rounded-md flex items-center gap-2'>
             <i class="w-[32px] fa-solid fa-user"></i>
-            <a href="LoaiDeTaiAdmin">Quản Lý Đề Tài</a>
+            <a href="LoaiDeTaiTBM">Quản Lý Đề Tài</a>
           </li>
         </ul>
       </nav>
@@ -73,8 +73,6 @@
       <div class='pb-4'>
         <h1 class='uppercase text-2xl font-semibold text-center p-4'>Quản Lý Loại Đề Tài</h1>
 
-        <button onclick="openAddForm()"
-          class='bg-blue-500 hover:bg-blue-400 text-center text-white p-2 mb-2 rounded-md shadow-md'>Thêm Loại Đề Tài</button>
         <table class='bg-gray-200 table-auto w-full shadow-md border-b-2 border-yellow-500'>
           <thead class='bg-yellow-500'>
             <tr>
@@ -93,7 +91,7 @@
 	              <td class='p-2 pl-4'>${rs.ngayBatDau}</td>
 	              <td class='p-2 pl-4 flex justify-center gap-4 items-center'>${rs.ngayKetThuc}</td>
 	              <td>
-		              <a href ="QuanLyDeTai?idloai=${rs.idLoaiDeTai}">
+		              <a href ="QuanLyDeTaiTBM?idloai=${rs.idLoaiDeTai}">
 		              <button>
 	                  		<i class="fa-solid fa-pen-to-square hover:text-yellow-500 cursor-pointer"></i>
 		              </button>

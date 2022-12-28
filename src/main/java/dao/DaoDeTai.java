@@ -26,6 +26,12 @@ public class DaoDeTai extends IDAO<DeTai>{
 	}
 	
 	@Override
+	public DeTai create(DeTai entity) {
+		// TODO Auto-generated method stub
+		return super.create(entity);
+	}
+	
+	@Override
 	public int count(String queryName) {
 		// TODO Auto-generated method stub
 		return super.count(queryName);
@@ -44,5 +50,11 @@ public class DaoDeTai extends IDAO<DeTai>{
 	public DeTai findSingle(Class<DeTai> type, Object key) {
 		// TODO Auto-generated method stub
 		return super.findSingle(type, key);
+	}
+	
+	@Override
+	public List<DeTai> findAll(String queryString) {
+		// TODO Auto-generated method stub
+		return super.findAll(queryString);
 	}
 }

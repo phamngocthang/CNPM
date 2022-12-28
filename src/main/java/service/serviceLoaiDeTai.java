@@ -35,4 +35,5 @@ public class serviceLoaiDeTai {
 		loai.setNgayKetThuc(ngayketthuc);
 		daoLoaiDeTai.create(loai);
 	}
+	
 }

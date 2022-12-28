@@ -30,6 +30,11 @@ public class ChuyenNganh implements Serializable {
 	public ChuyenNganh() {
 	}
 
+	public ChuyenNganh(int idChuyenNganh) {
+		super();
+		this.idChuyenNganh = idChuyenNganh;
+	}
+
 	public int getIdChuyenNganh() {
 		return this.idChuyenNganh;
 	}

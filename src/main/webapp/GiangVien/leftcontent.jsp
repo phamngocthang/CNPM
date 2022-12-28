@@ -16,10 +16,7 @@
                                     <c:if test="${userLogged.loaiTaiKhoan == 1}">
                                     	<a href="DeTaiDangKy" class="list-group-item "><img src="Content/public/images/Actions-help-contents-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Đề Tài Đăng Ký</a>
                                     </c:if>
-                                    <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="Content/public/images/Teacher-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
-                                    <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="Content/public/images/Student-3-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>
-                                    
-                                    <a href="/Home/ThongKe" class="list-group-item "><img src="Content/public/images/chart-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thống kê</a>
+
                                     <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="Content/public/images/Search-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
                                 </div><!-- /panel-default -->
                                 

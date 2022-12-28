@@ -1,4 +1,4 @@
-package controller.giangvien;
+package controller.TBM;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,61 +13,64 @@ import javax.servlet.http.HttpSession;
 
 import entity.DangKy;
 import entity.DeTai;
+import entity.Inforaccount;
 import service.serviceDangKy;
 import service.serviceDetai;
+import service.serviceUser;
 
 
 
-@WebServlet(urlPatterns = {"/DSDetaiGV"})
-public class LoadDeTaiGV extends HttpServlet {
+@WebServlet(urlPatterns = {"/QuanLyDeTaiTBM"})
+public class QuanLyDeTaiTBM extends HttpServlet {
 	serviceDetai sv = new serviceDetai();
-	private int getEndPage(int cn, int showPage, int idloai) {
-
-		int count = sv.getamountDTGV(cn, idloai);
-
-		int endP = count / showPage;
-		if(count % showPage != 0)
-		{
-			endP++;
-		}
-		return endP;
-	}
-       
+	serviceDangKy svdk = new serviceDangKy();
+	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		int index = Integer.parseInt(request.getParameter("index"));
-		int cn =Integer.parseInt(request.getParameter("cn"));
-		int idloai =Integer.parseInt(request.getParameter("loai"));
-		
+		HttpSession session = request.getSession();
+		int idloai = Integer.parseInt(request.getParameter("idloai"));
 		serviceDetai sv = new serviceDetai();
-		serviceDangKy svdk = new serviceDangKy();
-		List<DeTai> listD = sv.loadDetaiGV(cn, index, idloai);
-		int endP = getEndPage(cn, 5, idloai);
-		int totalD = sv.getamountDTGV(cn, idloai);
-		
-		List<DangKy> listGVHD = new ArrayList<>();
-		
+		List<DeTai> listD = sv.getLoaiDeTaiAdmin(idloai);
+		List<DangKy> listDK = new ArrayList<>();
+				
 		for (DeTai deTai : listD) {
 			try {
-				if(!svdk.getDangKyByID(deTai.getIdDeTai()).getAccount().getUsername().equals("")) {
-					listGVHD.add(svdk.getDangKyByID(deTai.getIdDeTai()));
+				if(svdk.getDangKyByID(deTai.getIdDeTai()) != null) {
+					listDK.add(svdk.getDangKyByID(deTai.getIdDeTai()));
 				}
 				else {
-					listGVHD.add(null);
+					listDK.add(null);
 				}
 			} catch (Exception e) {
-				listGVHD.add(null);
+				listDK.add(null);
 			}
 		}
+		
+		
+		
+		
+		List<Inforaccount> listGVPB = new ArrayList<>();
+		for (DangKy dangKy : listDK) {
+			try {
+				if(!sv.getInforByUserName(dangKy.getGVPhanBien()).getUserName().equals("")) {
+					listGVPB.add(sv.getInforByUserName(dangKy.getGVPhanBien()));
+				}
+				else {
+					listGVPB.add(null);
+				}
+			} catch (Exception e) {
+				listGVPB.add(null);
+			}
+		}
+		
+		
+		
 		request.setAttribute("listD", listD);
-		request.setAttribute("listGVHD", listGVHD);
-		request.setAttribute("tag", index);
-		request.setAttribute("tagcn", cn);
-		request.setAttribute("endP", endP);
-		request.setAttribute("totalD", totalD);
-		request.setAttribute("loai", idloai);
-		request.getRequestDispatcher("GiangVien/DSDeTai.jsp").forward(request, response);
+		request.setAttribute("listDK", listDK);
+		request.setAttribute("listGVPB", listGVPB);
+		session.setAttribute("loai", idloai);
+		request.getRequestDispatcher("TBM/QuanLyDeTai.jsp").forward(request, response);
     }
 
     @Override
